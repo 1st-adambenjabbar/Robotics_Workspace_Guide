@@ -44,10 +44,14 @@ explanation :
 # 🌍 Setup Locale
 
 ROS2 requires UTF-8 locale.
+A locale is a set of parameters that defines the user's language, country, and character encoding preferences. ROS2 requires UTF-8 encoding.
+UTF-8 stands for Unicode Transformation Format – 8-bit. It's the most widely used text encoding standard, capable of representing virtually every character from every language.
 
 ```bash
 locale
 ```
+explanation :
+*Displays your current locale configuration. You're checking if UTF-8 is already set up before making changes.
 
 If UTF-8 is missing:
 
@@ -57,6 +61,16 @@ sudo locale-gen en_US en_US.UTF-8
 sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 export LANG=en_US.UTF-8
 ```
+explanation :                      
+* Installs the locales package, which provides tools to generate and manage locale settings on the system.
+* locale-gen — generates the actual locale data files on disk based on what you specify. Here we generate:
+ - en_US — basic American English locale.
+ - en_US.UTF-8 — American English with full Unicode (UTF-8) support — this is what ROS2 needs.
+* update-locale — writes the locale settings to /etc/default/locale, making them persistent across reboots.
+* LC_ALL — stands for Locale Category ALL. It's an environment variable that overrides all individual locale categories at once (date format, number format, messages, etc.).
+* LANG — stands for LANGuage. Sets the default language for the system when individual LC_* variables aren't set.
+* export — makes the variable available to the current terminal session and all child processes immediately, without waiting for a reboot.
+* his is needed because update-locale only writes to a file — it doesn't apply to the session you're currently in.
 
 Verify:
 
