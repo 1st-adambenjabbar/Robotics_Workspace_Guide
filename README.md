@@ -1,7 +1,19 @@
 # Self-driving-car
 
-
 My objective with this project is to guide myself through the development of a simulated autonomous vehicle. I will be using a combination of cutting-edge technologies, including PyTorch, NVIDIA Omniverse, Gazebo, and ROS 2. My ultimate goal is to create a system capable of lane following, object detection, and operation within a simulated environment, with an optional visualization component in Omniverse.
+
+## 📖 Documentation & Guides
+
+In this section, I will manually explain each part of the project and the installation processes:
+
+*   [WSL Installation](./WSL%20Installation.md) — Setting up the Windows Subsystem for Linux.
+*   [Docker & Git Setup](./Docker%20-%20Git.md) — Configuring version control and containerization.
+*   [CUDA Installation](./Cuda%20Installation.md) — Enabling GPU acceleration for AI tasks.
+*   [ROS2 Installation and Use](./Gazebo%20Installation%20and%20use.md) — Core robotics framework setup.
+*   [Gazebo Installation and Use](./Gazebo%20Installation%20and%20use.md) — Simulation environment configuration.
+*   [Omniverse Installation and Use](./Omniverse%20Installation%20and%20Use.md) — Advanced visualization setup.
+
+---
 
 ## Table of Contents
 
@@ -254,167 +266,117 @@ This section provides a comprehensive, step-by-step guide to developing my simul
         # Example for CUDA 11.8
         pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
         ```
-    *   **My Verification:** I will open a Python interpreter and run `import torch; print(torch.cuda.is_available())`. It should return `True`. Also, `print(torch.cuda.get_device_name(0))` should display my GPU's name.
+    *   **My Verification:** I will open a Python interpreter and run `import torch; print(torch.cuda.is_available())`. It must return `True` to confirm successful CUDA integration.
 
-2.  **Load My Pre-trained YOLO Model:**
-    *   **My Action:** I will download a pre-trained YOLO (You Only Look Once) model (e.g., YOLOv5, YOLOv8, or a smaller variant like YOLO-Tiny) from a reputable source (e.g., Ultralytics GitHub repository). **Crucially, I will not attempt to train my own model; I will use a pre-trained one.** I will integrate the model loading and inference logic into a new Python script (e.g., `yolo_detection_node.py` in `self_driving_car/scripts`).
-    *   **My Commands (Example for YOLOv5):**
-        ```bash
-        # Install ultralytics for YOLOv8 or clone YOLOv5 repo
-        pip install ultralytics
-        
-        # Example Python code to load YOLOv5 (in yolo_detection_node.py)
-        import torch
-        
-        # Load YOLOv5s model (small, fast)
-        model = torch.hub.load("ultralytics/yolov5", "yolov5s", pretrained=True)
-        model.cuda() # Move model to GPU
-        model.eval() # Set model to evaluation mode
-        
-        # Example for YOLOv8
-        from ultralytics import YOLO
-        model = YOLO("yolov8n.pt") # Load a pre-trained nano model
-        model.to("cuda") # Move model to GPU
-        ```
-    *   **My Verification:** I will run a test script to load the YOLO model and perform inference on a sample image. I will ensure it runs on the GPU and produces bounding box detections.
+2.  **Select and Load a Pre-trained Object Detection Model:**
+    *   **My Action:** I will choose a suitable pre-trained object detection model, such as YOLOv5, YOLOv8, or a model from the PyTorch Video library. I will download the model's weights and integrate them into a new ROS2 node (e.g., `object_detection_node.py`).
+    *   **My Verification:** I will test the model on sample images to ensure it can correctly identify objects like other cars, pedestrians, or traffic signs.
 
-3.  **Perform My Object Detection on Camera Feed:**
-    *   **My Action:** I will modify my `yolo_detection_node.py` to subscribe to the camera image topic (`/camera/image_raw`), similar to my lane detection node. I will convert the ROS image to an OpenCV image, then to a PyTorch tensor, and pass it through the loaded YOLO model. I will process the model's output to extract bounding box coordinates, class labels, and confidence scores. I should also publish these detection results on a new ROS2 topic (e.g., `/object_detections`) as a custom message type or a `visualization_msgs/MarkerArray`.
-    *   **My Verification:** I will visualize the camera feed with overlaid bounding boxes for detected objects using `cv2.imshow` or `rqt_image_view` with my custom visualization. I will confirm that objects (e.g., cars, pedestrians, traffic signs) are correctly identified.
+3.  **Process Camera Feed for Object Detection:**
+    *   **My Action:** Within my `object_detection_node.py`, I will subscribe to the `/camera/image_raw` topic. I will pass each received image through the loaded PyTorch model. I will extract the bounding boxes, labels, and confidence scores for detected objects.
+    *   **My Verification:** I will visualize the detection results by drawing bounding boxes on the camera feed and displaying it using `cv2.imshow`.
 
-4.  **Integrate with ROS2 and Add My AI-based Behaviors:**
-    *   **My Action:** I will connect the object detection results to my car's control logic. This involves subscribing to the `/object_detections` topic in my `control_node.py`. I will implement new behaviors based on detected objects. For example:
-        *   If a car is detected ahead within a certain distance, I will reduce speed or stop.
-        *   If a pedestrian is detected, I will come to a complete stop.
-        *   I will adjust lane following behavior if a static obstacle is in the current lane.
-    *   **My Verification:** I will test my car in Gazebo with various objects in its path. I will observe if it correctly reacts to detected objects by adjusting its speed and steering according to my defined AI behaviors.
+4.  **Implement Obstacle Avoidance Logic:**
+    *   **My Action:** Based on the detected objects and their proximity to the car (which can be estimated from the bounding box size or by integrating a depth sensor/LiDAR), I will develop logic to avoid collisions. This might involve stopping the car, slowing down, or steering away from the obstacle. I will integrate this logic with my existing steering and speed control.
+    *   **My Verification:** I will place obstacles in the Gazebo world and observe if the car detects them and takes appropriate action to avoid a collision.
 
-**✅ Outcome of Step 3:** My simulated car will now detect objects in its environment using GPU-accelerated AI and adjust its driving behavior accordingly, demonstrating advanced perception capabilities.
+**✅ Outcome of Step 3:** My car will be able to detect and react to obstacles in its environment using a deep learning-based perception system.
 
 ### Step 4: Enhancing My Visuals and Finalizing (Omniverse + Polishing)
 
-**My Objective:** I will elevate the project's visual presentation and prepare for a compelling demonstration.
+**My Objective (Optional):** I will integrate NVIDIA Omniverse for high-fidelity visualization and finalize my project.
 
-1.  **Install Omniverse Isaac Sim (Optional):**
-    *   **My Action:** If I choose to pursue advanced visualization, I will download and install NVIDIA Omniverse Launcher, then install Omniverse Isaac Sim. This platform provides high-fidelity simulation and rendering capabilities. I will ensure my system meets the hardware requirements for Omniverse.
-    *   **My Verification:** I will launch Isaac Sim and explore its interface. I will confirm that I can create and manipulate basic scenes.
+1.  **Install and Configure NVIDIA Omniverse:**
+    *   **My Action:** I will install NVIDIA Omniverse and the necessary extensions for ROS2 integration (e.g., `omni.isaac.ros2_bridge`). I will set up a connection between my ROS2 workspace and Omniverse.
+    *   **My Verification:** I will ensure I can send simple ROS2 messages and see their effects within the Omniverse environment.
 
-2.  **Integrate My Scene or Connect My Data (Optional):**
-    *   **My Action:** I will explore options to either import a high-fidelity 3D scene into Isaac Sim that mimics my Gazebo environment or, more advanced, establish a data bridge between Gazebo and Isaac Sim. The latter would allow real-time synchronization of my car's pose and sensor data, enabling Isaac Sim to act as a superior visualization front-end for my Gazebo simulation. This might involve using ROS2-Isaac Sim bridges or custom data streaming.
-    *   **My Verification:** If successful, I should see my car and its environment rendered in Isaac Sim, potentially with improved graphics and physics compared to Gazebo's default visualization.
+2.  **Import Vehicle Model and World into Omniverse:**
+    *   **My Action:** I will import my car model and the Gazebo world (or a more detailed version of it) into Omniverse. I will configure the materials, lighting, and cameras to achieve high-quality visuals.
+    *   **My Verification:** I will visualize my car within the Omniverse scene and ensure it looks as expected.
 
-3.  **Record My Simulation (Optional):**
-    *   **My Action:** I will utilize Isaac Sim's built-in recording features or external screen recording software to capture high-quality video footage of my car operating autonomously. I will focus on showcasing both lane following and object detection behaviors in various scenarios.
-    *   **My Verification:** I will review the recorded footage to ensure it is clear, compelling, and effectively highlights the project's capabilities.
+3.  **Synchronize Gazebo and Omniverse:**
+    *   **My Action:** I will use the ROS2 bridge to synchronize the state of my car in Gazebo with its representation in Omniverse. This will allow me to see the car's movements in Gazebo reflected in real-time within the high-fidelity Omniverse environment.
+    *   **My Verification:** I will move the car in Gazebo and confirm that its position and orientation are accurately updated in Omniverse.
 
-4.  **Code Cleanup and My Project Organization:**
-    *   **My Action:** I will conduct a thorough review and refactoring of my entire codebase. I will ensure consistency in coding style, add comprehensive comments to complex sections, and remove any redundant or commented-out code. I will organize my project directory logically, separating scripts, launch files, URDFs, and configuration files into appropriate subdirectories. I will update my `setup.py` and `package.xml` files to reflect all dependencies and executables.
-    *   **My Verification:** My code should be easy to read, understand, and maintain. All ROS2 nodes should launch without warnings or errors related to package configuration.
+4.  **Final Testing and Polishing:**
+    *   **My Action:** I will conduct thorough testing of the entire system, ensuring all components work seamlessly together. I will refine my code, add comments, and create clear documentation. I will also record a demonstration video showcasing the car's autonomous capabilities and the high-fidelity visualization in Omniverse.
+    *   **My Verification:** I will perform a final run-through of the project and ensure it meets all my initial objectives.
 
-5.  **Record My Demonstration Video:**
-    *   **My Action:** I will create a concise (e.g., 2-5 minutes) demonstration video that effectively showcases my autonomous car's capabilities. I will start with a brief introduction, then present the car performing lane following, followed by its reactions to detected objects. I will conclude with a summary of achievements. I will consider adding background music and clear annotations.
-    *   **My Verification:** I will share the video with peers or mentors for feedback. I will ensure it clearly communicates the project's success.
+**✅ Outcome of Step 4:** I will have a complete, well-documented, and visually impressive simulated autonomous vehicle project.
 
-6.  **Update My GitHub Repository:**
-    *   **My Action:** I will commit all my code changes, including the updated README, to my local Git repository. I will push these changes to my remote GitHub repository. I will ensure my `README.md` is the most up-to-date and comprehensive guide to my project.
-    *   **My Commands:**
-        ```bash
-        cd ~/colcon_ws/src/self_driving_car # Or my main project directory
-        git add .
-        git commit -m "Update README with highly detailed step-by-step instructions in English (First Person)"
-        git push origin main # Or my main branch name
-        ```
-    *   **My Verification:** I will navigate to my GitHub repository in a web browser and confirm that all my latest code and the new `README.md` are visible and correctly rendered.
-
-**✅ Outcome of Step 4:** My project will be fully finalized, meticulously documented, and ready for an impressive demonstration, with all code and documentation updated on GitHub.
+---
 
 ## My Final Architecture
 
-```text
-Camera (Gazebo)
-     ↓
-OpenCV → Lane Detection → Steering Command
-     ↓
-PyTorch (YOLO) → Object Detection
-     ↓
-Control Logic → Linear & Angular Velocity (to /cmd_vel)
-```
+I will implement a modular architecture for my autonomous vehicle system, consisting of several interconnected ROS2 nodes:
+
+*   **`spawn_car.launch.py`:** A launch file that initializes the Gazebo simulation, loads the car model and the world, and starts the necessary ROS2 bridges.
+*   **`lane_detection_node.py`:** Subscribes to the camera feed, performs image processing using OpenCV to detect lane lines, and calculates the required steering commands.
+*   **`object_detection_node.py`:** Subscribes to the camera feed, utilizes a pre-trained PyTorch model for object detection, and identifies obstacles in the car's path.
+*   **`control_node.py`:** Receives steering commands from the lane detection node and obstacle information from the object detection node. It implements the final control logic and publishes `Twist` messages to the car's `/cmd_vel` topic.
+*   **Omniverse Bridge:** (Optional) Synchronizes the car's state between Gazebo and NVIDIA Omniverse for high-fidelity visualization.
 
 ## My Final Project Structure
 
-```bash
-self_driving_ws/
- ├── src/
- │   ├── self_driving_car/
- │       ├── scripts/
- │       │    ├── lane_detection_node.py
- │       │    ├── control_node.py
- │       │    ├── yolo_detection_node.py
- │       ├── launch/
- │       │    ├── spawn_car.launch.py
- │       ├── urdf/
- │       │    ├── my_car.urdf
- │       ├── worlds/
- │       │    ├── my_world.world
- │       ├── package.xml
- │       ├── setup.py
- │   ├── CMakeLists.txt # If I have C++ nodes
- │   ├── ... (other ROS2 packages)
-├── install/
-├── log/
-├── build/
+I will organize my project into a clear and logical directory structure:
+
+```text
+self_driving_car/
+├── launch/
+│   └── spawn_car.launch.py
+├── scripts/
+│   ├── lane_detection_node.py
+│   ├── object_detection_node.py
+│   └── control_node.py
+├── urdf/
+│   └── my_car.urdf
+├── worlds/
+│   └── my_world.world
+├── models/
+│   └── (Pre-trained PyTorch models)
+├── config/
+│   └── (Configuration files)
+├── package.xml
+└── setup.py
 ```
 
 ## My Final Demonstration (What I Will Show)
 
-My demonstration should clearly highlight the following aspects:
+For my final demonstration, I will showcase the following:
 
-### ✅ Core Functionality
-
-*   The car driving autonomously, demonstrating stable lane following.
-*   Visual overlay of the lane detection process (e.g., detected lines, ROI).
-
-### 🔥 AI Capabilities
-
-*   Real-time bounding box detections from the YOLO model on various objects.
-*   The car's reactive behaviors to detected obstacles (e.g., slowing down, stopping, avoiding).
-
-### 🎨 Bonus (If Implemented)
-
-*   High-fidelity visualization of the simulation within NVIDIA Omniverse.
+1.  **Autonomous Lane Following:** A video of the car successfully navigating a track in Gazebo, staying within the lane lines.
+2.  **Obstacle Detection and Avoidance:** A demonstration of the car identifying and reacting to various obstacles (e.g., other cars, pedestrians) placed in its path.
+3.  **Real-time Visualization:** A side-by-side view of the Gazebo simulation and the high-fidelity Omniverse visualization, showing the synchronized movement of the car.
+4.  **System Performance:** A brief overview of the system's performance, including the frame rate of the object detection and the responsiveness of the control system.
 
 ## My Strict Rules (To Ensure My Completion)
 
-To ensure the timely completion of this project, I will adhere to these strict guidelines:
+I will adhere to the following rules to ensure the successful completion of this project:
 
-### ❌ I WILL NOT:
-
-*   **Train my own AI model:** I will use pre-trained models exclusively. Training a custom model is a significant undertaking beyond the scope of this project.
-*   **Replace Gazebo with Omniverse for core simulation:** Omniverse is for visualization and advanced simulation, but Gazebo remains the primary physics engine for this project's core functionality.
-*   **Spend days debugging CUDA builds:** If I encounter persistent CUDA issues, I will revert to CPU-based inference for initial development or seek quick solutions. I will avoid deep dives that consume excessive time.
-
-### ✅ I WILL:
-
-*   **Utilize pre-trained models:** I will leverage existing, robust AI models to accelerate development.
-*   **Keep the pipeline simple:** I will prioritize functionality and clear integration over overly complex solutions.
-*   **Focus on integration:** The primary challenge and learning outcome for me is effectively integrating ROS2, Gazebo, OpenCV, and PyTorch.
+*   **Rule 1: Progressive Development:** I will complete each step thoroughly before moving on to the next one.
+*   **Rule 2: Modular Design:** I will keep my code modular and well-organized to facilitate debugging and future enhancements.
+*   **Rule 3: Regular Testing:** I will test each component independently and as part of the larger system on a regular basis.
+*   **Rule 4: Clear Documentation:** I will document my code and the overall system architecture to ensure it's easy to understand and maintain.
+*   **Rule 5: Focus on Core Functionality:** I will prioritize the core functionality (lane following and object detection) before spending time on optional features like Omniverse integration.
 
 ## My Acquired Skills
 
-Upon completing this project, I will have gained valuable experience and skills in:
+Through this project, I will acquire and demonstrate proficiency in the following areas:
 
-*   **Robotics:** ROS2 (Robot Operating System 2) fundamentals, node communication, launch files.
-*   **Simulation:** Gazebo environment setup, model integration, sensor configuration.
-*   **Computer Vision:** OpenCV for image processing, lane detection algorithms (Canny, Hough).
-*   **Deep Learning:** PyTorch for model inference, GPU acceleration (CUDA), object detection (YOLO).
-*   **Basic Digital Twin Concepts:** (Optional, with Omniverse) Understanding of high-fidelity simulation and visualization.
+*   **Robotics Frameworks:** ROS2 (Humble, Iron, or Rolling)
+*   **Simulation Environments:** Gazebo (Garden/Fortress)
+*   **Computer Vision:** OpenCV
+*   **Deep Learning:** PyTorch
+*   **GPU Acceleration:** CUDA
+*   **Visualization:** NVIDIA Omniverse
+*   **Programming:** Python
+*   **System Integration:** Combining multiple technologies into a cohesive system.
 
 ## My Next Steps
 
-Should I wish to delve deeper or require further assistance, I can provide:
+After completing this project, I plan to:
 
-👉 A **complete repository with functional code (ready for copy-pasting)**
-👉 Or a **step-by-step YOLO + ROS2 integration guide**
-
-Simply state:
-**"give me the complete code"** or **"YOLO integration guide"**
+*   **Implement more advanced control algorithms:** Explore Model Predictive Control (MPC) or Reinforcement Learning (RL) for more sophisticated driving behavior.
+*   **Integrate additional sensors:** Add LiDAR or radar for improved obstacle detection and environmental mapping.
+*   **Develop more complex simulation scenarios:** Create more realistic and challenging environments with traffic, weather conditions, and diverse road types.
+*   **Explore deployment on real hardware:** Investigate the possibility of deploying the developed system on a small-scale physical robot car.
