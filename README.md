@@ -6,7 +6,7 @@ My objective with this project is to guide myself through the development of a s
 
 In this section, I will manually explain each part of the project and the installation processes:
 
-*   [WSL Installation](./WSL%20Installation.md) — Setting up the Windows Subsystem for Linux.
+*   [WSL Installation](./WSL%20Installation.md) — Setting up the Windows Subsystem for Linux if you can't use LINUX directly .
 *   [Docker & Git Setup](./Docker%20-%20Git.md) — Configuring version control and containerization.
 *   [CUDA Installation](./Cuda%20Installation.md) — Enabling GPU acceleration for AI tasks.
 *   [ROS2 Installation and Use](./Gazebo%20Installation%20and%20use.md) — Core robotics framework setup.
