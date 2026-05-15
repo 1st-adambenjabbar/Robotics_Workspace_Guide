@@ -1,6 +1,6 @@
 # 🐧 Linux Commands Cheat Sheet
 # 📂 Navigation :
-pwd                     # Show current directory
+pwd                     # Show current directory/
 ls                      # List files
 ls -la                  # Detailed list with hidden files
 cd folder/              # Enter folder
