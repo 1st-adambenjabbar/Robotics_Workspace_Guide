@@ -33,12 +33,12 @@ sudo apt update && sudo apt upgrade -y
 
 ```
 explanation :
-sudo — runs the command as administrator (superuser).
-apt — stands for Advanced Package Tool. It's Ubuntu's built-in package manager, used to install, update, and remove software.
-update — fetches the list of available packages from all configured repositories. It does not install anything — it just refreshes the catalog.
-&& — logical AND operator in bash. Runs the second command only if the first one succeeded (exit code 0).
-upgrade — actually downloads and installs newer versions of all packages already installed on your system.
--y — stands for "yes". Automatically confirms any prompts so you don't have to type y manually.
+* sudo — runs the command as administrator (superuser).
+* apt — stands for Advanced Package Tool. It's Ubuntu's built-in package manager, used to install, update, and remove software.
+* update — fetches the list of available packages from all configured repositories. It does not install anything — it just refreshes the catalog.
+* && — logical AND operator in bash. Runs the second command only if the first one succeeded (exit code 0).
+* upgrade — actually downloads and installs newer versions of all packages already installed on your system.
+* -y — stands for "yes". Automatically confirms any prompts so you don't have to type y manually.
 ---
 
 # 🌍 Setup Locale
