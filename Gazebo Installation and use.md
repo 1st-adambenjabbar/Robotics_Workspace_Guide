@@ -6,14 +6,16 @@
 
 # 📌 Requirements
 
-- Ubuntu 22.04 LTS
+- Ubuntu 22.04 LTS (long term support) : the only where i personnally found it possible to install ros 
 - Internet connection
-- sudo privileges
+- sudo privilege (super User DO)
 
 Check Ubuntu version:
 
 ```bash
 lsb_release -a
+*  explanation : lsb_release ( stands for Linux Standard Base release. It's a command that displays information about your Linux distribution.)
+* -a : flag meaning "all": shows all available information (distributor ID, description, release number, codename).
 ```
 
 You should see:
@@ -28,6 +30,14 @@ Ubuntu 22.04
 
 ```bash
 sudo apt update && sudo apt upgrade -y
+
+explanation :
+sudo — runs the command as administrator (superuser).
+apt — stands for Advanced Package Tool. It's Ubuntu's built-in package manager, used to install, update, and remove software.
+update — fetches the list of available packages from all configured repositories. It does not install anything — it just refreshes the catalog.
+&& — logical AND operator in bash. Runs the second command only if the first one succeeded (exit code 0).
+upgrade — actually downloads and installs newer versions of all packages already installed on your system.
+-y — stands for "yes". Automatically confirms any prompts so you don't have to type y manually.
 ```
 
 ---
