@@ -66,7 +66,7 @@ Each layer must be compatible with the one below it. A mismatch at any level is 
 | **RAM** | 8 GB | 16 GB+ recommended for ML workloads |
 | **Storage** | 5 GB free | More for samples and frameworks |
 | **Internet** | Required | Driver and package downloads |
-
+ - even if you found these requirements ain't compatible with your pc config , just try it might work . I personally have an RTX4050 / intel core i5(24G) and it worked for me 
 ---
 
 ## Version Compatibility Matrix
