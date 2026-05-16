@@ -1,7 +1,7 @@
 # WSL Installation Guide — Windows 11
 
 > **Windows Subsystem for Linux (WSL)** lets you run a full Linux environment directly on Windows 11, without a VM or dual-boot.
-I personally installled for the first time the 09/05/2025 and It worked perfectly so enjoy trust me :
+I personally installled for the first time the 09/05/2026 and It worked perfectly so enjoy trust me :
 ---
 
 ## Table of Contents
