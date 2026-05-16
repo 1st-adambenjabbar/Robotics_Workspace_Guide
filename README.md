@@ -344,8 +344,9 @@ Combining robotics simulation, artificial intelligence, GPU acceleration, and au
 <p align="center">
 ⚡ Building Intelligent Robotics Through Simulation ⚡
 </p>
----
+
+
 <p align="center">
 BY ADAM BENJABBAR
 </p>
----
+
