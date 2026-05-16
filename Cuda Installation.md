@@ -703,4 +703,4 @@ nvidia-smi
 
 ---
 
-*Guide written for CUDA 12.x / 13.x — Ubuntu 22.04 / 24.04 & Windows 11. Last updated: May 2026.*
+*Guide written for CUDA 12.x / 13.x — Ubuntu 22.04 / 24.04 & Windows 11 by BENJABBAR Adam. Last updated: May 2026.*
