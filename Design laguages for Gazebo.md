@@ -1,4 +1,4 @@
-# 🏗️ Gazebo Design Languages — SDF, URDF & Xacro
+# Gazebo Design Languages : SDF, URDF & Xacro
 > How to **design robots and worlds** for Gazebo simulation
 > SDF · URDF · Xacro — every tag, attribute, and concept explained from scratch 🐚
 
