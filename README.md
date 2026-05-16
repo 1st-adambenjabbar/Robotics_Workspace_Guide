@@ -71,55 +71,69 @@ D --> G[Autonomous Virtual Robot]
 
 ---
 
-# 📚 Documentation & Guides
+# 📚 Complete Robotics Simulation Learning Path
 
-This repository contains complete setup pipelines, engineering workflows, and robotics learning resources.
-
----
-
-## 📦 Setup & Installation Guides
-
-### 🐧 Linux & Environment Setup
-
-- [WSL Installation](./WSL%20Installation.md)  
-  Setting up Windows Subsystem for Linux for development environments running Windows.
-
-- [Docker & Git Setup](./Docker%20-%20Git.md)  
-  Configuring Git and Docker for development and containerization.
+This repository follows a structured roadmap designed to take you from a fresh Linux environment to advanced autonomous robotics simulation systems.
 
 ---
 
-### ⚡ GPU & AI Setup
+# 🐧 Phase 1 — Linux Environment
 
-- [CUDA Installation](./Cuda%20Installation.md)  
-  Enabling NVIDIA GPU acceleration for AI and robotics workloads.
+### [WSL Installation](./WSL%20Installation.md)
 
----
-
-### 🤖 Robotics Stack
-
-- [ROS 2 Installation Guide and Concepts](./ROS%202%20Installation%20Guide%20and%20Concepts%20Explanation.md)  
-  Installing ROS 2 and understanding its core concepts.
-
-- [Programming With ROS2](./Programming%20With%20ROS2.md)  
-  Learning ROS 2 programming fundamentals and workflows.
+Set up a Linux development environment using Windows Subsystem for Linux.
 
 ---
 
-### 🌍 Simulation & Visualization
+# 🤖 Phase 2 — ROS2 Foundations
 
-- [Gazebo Installation and Use](./Gazebo%20Installation%20and%20Use.md)  
-  Setting up the Gazebo robotics simulation environment.
+### [ROS 2 Installation Guide and Concepts](./ROS%202%20Installation%20Guide%20and%20Concepts%20Explanation.md)
 
-- [Omniverse Installation and Use](./Omniverse%20Installation%20and%20Use.md)  
-  Installing and configuring NVIDIA Omniverse tools.
+Install ROS 2 and learn the core concepts behind modern robotics middleware.
+
+### [Programming With ROS2](./Programming%20With%20ROS2.md)
+
+Learn ROS2 nodes, topics, publishers, subscribers, services, and robotics workflows.
 
 ---
 
-### 🛠️ Utilities
+# 🌍 Phase 3 — Robotics Simulation
 
-- [Linux Commands Cheat Sheet](./Linux%20Commands%20Cheat%20Sheet.md)  
-  Common Linux commands useful for robotics and development.
+### [Gazebo Installation and Use](./Gazebo%20simulation%20coding%20guide.md)
+
+Build and test autonomous robotics systems inside realistic virtual environments.
+
+---
+
+# ⚡ Phase 4 — GPU Acceleration & AI
+
+### [CUDA Installation](./Cuda%20Installation.md)
+
+Enable NVIDIA GPU acceleration for deep learning and robotics simulation workloads.
+
+---
+
+# 🌌 Phase 5 — Advanced Simulation & Digital Twins
+
+### [Isaac Sim Installation and Use](./isaac%20sim%20Installation%20and%20Use.md)
+
+Integrate ROS2 with NVIDIA Isaac Sim and Omniverse for advanced AI-powered robotics simulations.
+
+---
+
+# 🛠️ Phase 6 — Development Workflow
+
+### [Docker & Git Setup](./Docker%20-%20Git.md)
+
+Set up professional development and containerization workflows.
+
+---
+
+# 📖 Utilities
+
+### [Linux Commands Cheat Sheet](./Linux%20Commands%20Cheat%20Sheet.md)
+
+Useful Linux commands commonly used in robotics and development environments.
 
 ---
 
