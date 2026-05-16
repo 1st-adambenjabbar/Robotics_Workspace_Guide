@@ -347,6 +347,6 @@ Combining robotics simulation, artificial intelligence, GPU acceleration, and au
 
 
 <p align="center">
-BY ADAM BENJABBAR
+3 DAYS TO WRITE THE FULL GUIDE - BY ADAM BENJABBAR
 </p>
 
