@@ -4,6 +4,7 @@
 > Written with **0 knowledge of Linux** required — every command and abbreviation is explained in **Bash** 🐚
 
 ---
+16/05/2025 — I reinstalled ROS 2 six times over the past three months, so I’m going to share exactly how to install it and the problems I encountered along the way.
 
 ## 📌 Requirements
 
@@ -354,28 +355,6 @@ gazebo
 
 > - `gazebo` — a physics-based robot simulator (gravity, collisions, friction, sensors).
 > - `ros-humble-gazebo-ros-pkgs` — the ROS2–Gazebo bridge: makes simulated sensor data appear as real ROS2 topics. `pkgs` = **p**ac**k**a**g**e**s**.
-
----
-
-## 🧠 Install TurtleBot3 (Optional)
-
-> **TurtleBot3** is a popular open-source robot platform widely used for ROS2 learning and research. Models: **Burger** (small, 2-wheel), **Waffle**, **Waffle Pi**.
-
-```bash
-sudo apt install ros-humble-turtlebot3* -y
-```
-
-> `*` is a **wildcard**: installs **all** packages whose name starts with `ros-humble-turtlebot3`.
-
-```bash
-echo 'export TURTLEBOT3_MODEL=burger' >> ~/.bashrc
-source ~/.bashrc
-ros2 launch turtlebot3_gazebo empty_world.launch.py
-```
-
-> - `TURTLEBOT3_MODEL` — environment variable that tells TurtleBot3 packages which model to use.
-> - `ros2 launch` — runs a **launch file**, which starts multiple nodes and configures the system at once. More powerful than `ros2 run` (single node only).
-> - `.launch.py` — ROS2 launch files are Python scripts (ROS1 used XML `.launch` files).
 
 ---
 
