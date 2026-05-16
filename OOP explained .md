@@ -2214,3 +2214,5 @@ public class Main {
 | camelCase | namingConvention (first word lowercase) |
 | snake_case | naming_convention (underscores) |
 | SCREAMING_SNAKE | CONSTANT_NAMING_CONVENTION |
+---
+**BY BENJABBAR Adam**
