@@ -1,4 +1,4 @@
-## I explained the essentials . I even let Claude choose the examples for you.
+## I explained the essentials . I let Claude choose the examples for you.
 # 🤖 ROS2 — Complete Coding Guide
 > Everything you need to program nodes in Python (`rclpy`) and C++ (`rclcpp`)
 > Every concept, keyword, and abbreviation explained from scratch.
