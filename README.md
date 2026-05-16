@@ -339,7 +339,8 @@ This repository is designed to:
 # 🚀 Long-Term Mission
 
 Combining robotics simulation, artificial intelligence, GPU acceleration, and autonomous systems into one unified engineering ecosystem.
-
+---
+> ** by BENJABBAR Adam ** <
 ---
 
 <p align="center">
