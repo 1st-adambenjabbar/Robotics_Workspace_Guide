@@ -40,71 +40,6 @@ My objective is to develop a simulated car capable of:
 *   Operating within the Gazebo simulation environment.
 *   (Optional) Being visualized in NVIDIA Omniverse.
 
-## My Project Strategy
-
-I will structure this project into **3 distinct layers** to ensure a progressive and manageable development approach:
-
-### Layer 1 — Core Functionality
-
-This foundational layer will establish the essential components of my project:
-
-*   I will set up Gazebo and ROS2.
-*   I will implement basic lane following using OpenCV.
-
-### Layer 2 — AI Upgrade
-
-This layer will integrate advanced artificial intelligence capabilities:
-
-*   I will utilize PyTorch for object detection (e.g., YOLO).
-*   I will leverage CUDA for GPU acceleration to ensure real-time performance.
-
-### Layer 3 — Visual Enhancement (Optional)
-
-This layer will focus on improving the visual fidelity and demonstration aspects of my project:
-
-*   I will integrate NVIDIA Omniverse for advanced visualization (primarily for demonstration purposes).
-
-## My Detailed Step-by-Step Instructions
-
-This section provides a comprehensive, step-by-step guide to developing my simulated autonomous vehicle. Each step is designed to build upon the previous one, ensuring a structured and efficient development process.
-
-### Step 1: Setting Up My Environment (ROS2 + Gazebo)
-
-**My Objective:** I will establish the core simulation environment and integrate my vehicle model.
-
-1.  **Install ROS2 and Gazebo:**
-   
-
-2.  **Create My ROS2 Package:**
-
-
-3.  **Load My Vehicle Model and Gazebo World:**
-
-4.  **Configure My Camera Sensor:**
-
-**✅ Outcome of Step 1:** I will have a functional robot with a camera sensor operating correctly within the Gazebo simulation environment, publishing image data via a ROS2 topic.
-
-### Step 2: Implementing My Vision and Control (OpenCV)
-
-**My Objective:** I will enable my car to autonomously follow a lane.
-
-1.  **Install OpenCV and Read Camera Images:**
-2.  **Implement My Lane Detection:**
-3.  **Calculate My Lane Center and Steering Logic:**
-4.  **Connect My Control to Robot Movement:**
-**✅ Outcome of Step 2:** My simulated car will autonomously follow a lane within the Gazebo environment, demonstrating basic vision-based control.
-
-### Step 3: Integrating My AI (PyTorch + CUDA)
-
-**My Objective:** I will enhance my car's perception with object detection capabilities using deep learning.
-
-1.  **Install PyTorch with CUDA:**
-2.  **Select and Load a Pre-trained Object Detection Model:**
-3.  **Process Camera Feed for Object Detection:**
-4.  **Implement Obstacle Avoidance Logic:**
-   **✅ Outcome of Step 3:** My car will be able to detect and react to obstacles in its environment using a deep learning-based perception system.
-
-### Step 4: Enhancing My Visuals and Finalizing (Omniverse + Polishing)
 
 **My Objective (Optional):** I will integrate NVIDIA Omniverse for high-fidelity visualization and finalize my project.
 
@@ -116,15 +51,6 @@ This section provides a comprehensive, step-by-step guide to developing my simul
 
 ---
 
-## My Final Architecture
-## My Final Demonstration (What I Will Show)
-## My Strict Rules (To Ensure My Completion)
-I will adhere to the following rules to ensure the successful completion of this project:
-*   **Rule 1: Progressive Development:** I will complete each step thoroughly before moving on to the next one.
-*   **Rule 2: Modular Design:** I will keep my code modular and well-organized to facilitate debugging and future enhancements.
-*   **Rule 3: Regular Testing:** I will test each component independently and as part of the larger system on a regular basis.
-*   **Rule 4: Clear Documentation:** I will document my code and the overall system architecture to ensure it's easy to understand and maintain.
-*   **Rule 5: Focus on Core Functionality:** I will prioritize the core functionality (lane following and object detection) before spending time on optional features like Omniverse integration.
 ## My Acquired Skills
 Through this project, I will acquire and demonstrate proficiency in the following areas:
 *   **Robotics Frameworks:** ROS2 (Humble, Iron, or Rolling)
@@ -135,9 +61,6 @@ Through this project, I will acquire and demonstrate proficiency in the followin
 *   **Visualization:** NVIDIA Omniverse
 *   **Programming:** Python
 *   **System Integration:** Combining multiple technologies into a cohesive system.
-## My Next Steps
-After completing this project, I plan to:
-*   **Implement more advanced control algorithms:** Explore Model Predictive Control (MPC) or Reinforcement Learning (RL) for more sophisticated driving behavior.
-*   **Integrate additional sensors:** Add LiDAR or radar for improved obstacle detection and environmental mapping.
+environmental mapping.
 *   **Develop more complex simulation scenarios:** Create more realistic and challenging environments with traffic, weather conditions, and diverse road types.
 *   **Explore deployment on real hardware:** Investigate the possibility of deploying the developed system on a small-scale physical robot car.
