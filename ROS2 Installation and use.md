@@ -1,6 +1,6 @@
 # 🤖 ROS2 Humble Installation Guide (Ubuntu 22.04)
 
-> Full installation tutorial for ROS2 Humble Hawksbill on Ubuntu Jammy (22.04) with 0 knowledge of linux commands 
+> Full installation tutorial for ROS2 Humble Hawksbill on Ubuntu Jammy (22.04) with 0 knowledge of linux commands It's Bash explained 🐚 
 
 ---
 
