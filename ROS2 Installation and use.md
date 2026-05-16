@@ -112,7 +112,8 @@ expalination :
 -s — silent: hides the download progress bar.
 -S — show-error: still displays error messages even in silent mode. -sS together = quiet but not blind.
 -L — location: follows HTTP redirects automatically if the URL has moved.
-- https://raw.githubusercontent.com/... — the direct URL to the official ROS GPG key hosted on GitHub. raw.githubusercontent.com serves raw file content (not the GitHub webpage).
+- [https://raw.githubusercontent.com/...](https://raw.githubusercontent.com/ros/rosdistro/master/ros.key \
+-o /usr/share/keyrings/ros-archive-keyring.gpg) — the direct URL to the official ROS GPG key hosted on GitHub. raw.githubusercontent.com serves raw file content (not the GitHub webpage).
 -o — stands for output: saves the downloaded content to a file instead of printing it.
 - usr/share/keyrings/ — the standard Linux directory for storing trusted apt signing keys.
 - .gpg — file extension for a GPG (GNU Privacy Guard) key file. apt uses this to verify that packages from the ROS2 repo are legitimate and unmodified.
