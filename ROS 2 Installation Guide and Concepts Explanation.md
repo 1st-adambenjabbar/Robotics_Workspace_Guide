@@ -577,3 +577,5 @@ Topics are the most common, but ROS2 has two other patterns:
 ---
 
 > 🐢 **ROS2 motto**: *"One node = one responsibility"*. Build small, focused nodes and connect them through topics. This makes your robot system **modular**, **testable**, and **robust**.
+
+*Guide written By BENJABBAR ADAM . Last updated: 16 May 2026.*
