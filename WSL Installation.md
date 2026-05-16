@@ -326,4 +326,4 @@ wsl --set-version <DistroName> 2
 
 ---
 
-*Guide written for Windows 11 — WSL 2. Last updated: 16 May 2026.*
+*Guide written for Windows 11 — WSL 2 by BENJABBAR Adam . Last updated: 16 May 2026.*
