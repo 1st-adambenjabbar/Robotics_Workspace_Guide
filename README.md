@@ -1,11 +1,11 @@
-<h1 align="center">🚀 Autonomous Robotics & AI Simulation Stack</h1>
+<h1 align="center"> The Ultimate Robotics Simulation Guide</h1>
 
 <p align="center">
-Building intelligent virtual robotic systems using ROS 2, Gazebo, NVIDIA Omniverse, CUDA, and PyTorch.
+Building intelligent autonomous robotics simulations using ROS 2, Gazebo, NVIDIA Isaac Sim, CUDA, and PyTorch.
 </p>
 
 <p align="center">
-🤖 Robotics • 🧠 Artificial Intelligence • 🌍 Simulation • ⚡ GPU Acceleration • 🚗 Autonomous Systems
+🤖 ROS2 • 🌍 Simulation • 🧠 AI • ⚡ GPU Acceleration • 🚀 Isaac Sim
 </p>
 
 ---
@@ -27,32 +27,31 @@ Building intelligent virtual robotic systems using ROS 2, Gazebo, NVIDIA Omniver
 
 # 🔮 Vision
 
-This repository documents my journey toward building advanced autonomous robotics simulations by combining:
+This repository documents my journey toward mastering modern robotics simulation and artificial intelligence systems using:
 
 - ROS 2
-- NVIDIA CUDA
-- PyTorch
 - Gazebo
-- NVIDIA Omniverse
-- Computer Vision
-- AI-based robotic systems
+- NVIDIA Isaac Sim
+- CUDA
+- PyTorch
+- OpenCV
 
-The goal is to create realistic virtual robotics environments entirely in simulation while mastering modern robotics and AI technologies used in industry and research.
+The goal is to create intelligent autonomous virtual robotic systems entirely in simulation while learning the technologies used in advanced robotics research and industry environments.
 
 ---
 
-# 🧠 Tech Stack
+# 🧠 Main Technologies
 
 | Technology | Purpose |
 |---|---|
 | ROS 2 | Robotics middleware and communication |
 | Gazebo | Robotics simulation |
-| NVIDIA Omniverse | Digital twins and advanced simulation |
+| NVIDIA Isaac Sim | Advanced robotics simulation |
 | CUDA | GPU acceleration |
-| PyTorch | Deep learning and AI |
+| PyTorch | Artificial intelligence and deep learning |
 | OpenCV | Computer vision |
-| Docker | Containerization |
-| Linux | Development environment |
+| Docker | Development environments |
+| Linux | Robotics operating environment |
 
 ---
 
@@ -65,71 +64,154 @@ A[Virtual Sensors] --> B[OpenCV]
 B --> C[PyTorch AI Models]
 C --> D[ROS2 Nodes]
 D --> E[Gazebo Simulation]
-D --> F[NVIDIA Omniverse]
-D --> G[Autonomous Virtual Robot]
+D --> F[Isaac Sim]
 ```
 
 ---
 
 # 📚 Complete Robotics Simulation Learning Path
 
-This repository follows a structured roadmap designed to take you from a fresh Linux environment to advanced autonomous robotics simulation systems.
+This repository follows a structured roadmap designed to take users from Linux setup to advanced robotics simulation systems.
 
 ---
 
 # 🐧 Phase 1 — Linux Environment
 
+## 📦 WSL Installation
+
 ### [WSL Installation](./WSL%20Installation.md)
 
 Set up a Linux development environment using Windows Subsystem for Linux.
+
+Topics included:
+
+- Ubuntu installation
+- Linux terminal basics
+- Development environment preparation
+- Windows/Linux integration
 
 ---
 
 # 🤖 Phase 2 — ROS2 Foundations
 
-### [ROS 2 Installation Guide and Concepts](./ROS%202%20Installation%20Guide%20and%20Concepts%20Explanation.md)
+## 🧠 ROS2 Installation and Concepts
 
-Install ROS 2 and learn the core concepts behind modern robotics middleware.
+### [ROS 2 Installation Guide and Concepts Explanation](./ROS%202%20Installation%20Guide%20and%20Concepts%20Explanation.md)
+
+Install ROS 2 and understand the fundamental concepts behind modern robotics middleware.
+
+Topics included:
+
+- ROS2 installation
+- Workspaces
+- Nodes
+- Topics
+- Publishers & Subscribers
+- Services
+- Actions
+- Packages
+- Communication systems
+- Robotics architecture concepts
+
+---
+
+## 💻 Programming With ROS2
 
 ### [Programming With ROS2](./Programming%20With%20ROS2.md)
 
-Learn ROS2 nodes, topics, publishers, subscribers, services, and robotics workflows.
+Learn how to create robotics applications and systems using ROS2 programming workflows.
+
+Topics included:
+
+- Python ROS2 nodes
+- Publishers and subscribers
+- Services
+- Launch files
+- Workspace organization
+- ROS2 commands
+- Robotics development workflows
 
 ---
 
 # 🌍 Phase 3 — Robotics Simulation
 
-### [Gazebo Installation and Use](./Gazebo%20simulation%20coding%20guide.md)
+## 🚗 Gazebo Simulation
 
-Build and test autonomous robotics systems inside realistic virtual environments.
+### [Gazebo Simulation Coding Guide](./Gazebo%20simulation%20coding%20guide.md)
+
+Build and test autonomous robotics systems inside realistic simulation environments.
+
+Topics included:
+
+- Gazebo installation
+- Simulation environments
+- Robot spawning
+- ROS2 integration
+- Sensor simulation
+- Robot movement
+- Autonomous simulation systems
 
 ---
 
-# ⚡ Phase 4 — GPU Acceleration & AI
+# ⚡ Phase 4 — GPU Acceleration
 
-### [CUDA Installation](./Cuda%20Installation.md)
+## 🔥 CUDA Installation
 
-Enable NVIDIA GPU acceleration for deep learning and robotics simulation workloads.
+### [Cuda Installation](./Cuda%20Installation.md)
+
+Enable NVIDIA GPU acceleration for robotics simulations and artificial intelligence workloads.
+
+Topics included:
+
+- CUDA installation
+- NVIDIA drivers
+- GPU acceleration
+- AI optimization
+- CUDA verification
 
 ---
 
-# 🌌 Phase 5 — Advanced Simulation & Digital Twins
+# 🚀 Phase 5 — Advanced Robotics Simulation
+
+## 🌌 NVIDIA Isaac Sim
 
 ### [Isaac Sim Installation and Use](./isaac%20sim%20Installation%20and%20Use.md)
 
-Integrate ROS2 with NVIDIA Isaac Sim and Omniverse for advanced AI-powered robotics simulations.
+Integrate ROS2 with NVIDIA Isaac Sim for advanced AI-powered robotics simulation systems.
+
+Topics included:
+
+- Isaac Sim installation
+- ROS2 bridge
+- Advanced simulation
+- Synthetic data
+- Virtual sensors
+- Robotics testing
+- AI simulation environments
 
 ---
 
 # 🛠️ Phase 6 — Development Workflow
 
+## 🐳 Docker & Git
+
 ### [Docker & Git Setup](./Docker%20-%20Git.md)
 
-Set up professional development and containerization workflows.
+Set up professional robotics development workflows and containerized environments.
+
+Topics included:
+
+- Git setup
+- GitHub workflows
+- Docker containers
+- Development environments
+- Project management
 
 ---
 
 # 📖 Utilities
+
+## 🐧 Linux Commands Cheat Sheet
 
 ### [Linux Commands Cheat Sheet](./Linux%20Commands%20Cheat%20Sheet.md)
 
@@ -137,39 +219,37 @@ Useful Linux commands commonly used in robotics and development environments.
 
 ---
 
-# 🛣️ Learning Roadmap
+# 🛣️ Learning Progression
 
-## ✅ Completed
+## ✅ Foundations
 
 - [x] Linux Fundamentals
 - [x] Git & GitHub
-- [x] Docker Basics
-- [x] CUDA Installation
-- [x] ROS 2 Installation
-- [x] ROS 2 Core Concepts
+- [x] ROS2 Installation
+- [x] ROS2 Core Concepts
+- [x] Python Fundamentals
 
 ---
 
-## 🚧 In Progress
+## 🚧 Current Focus
 
-- [ ] ROS 2 Advanced Nodes
 - [ ] Gazebo Simulation
-- [ ] Omniverse Integration
-- [ ] Computer Vision Pipelines
-- [ ] AI-Based Robotics
-- [ ] SLAM & Navigation
-- [ ] Autonomous Decision Systems
+- [ ] CUDA Integration
+- [ ] Isaac Sim Workflows
+- [ ] Computer Vision Systems
+- [ ] AI Robotics Pipelines
+- [ ] Autonomous Navigation
 
 ---
 
-## 🔥 Future Objectives
+## 🔥 Future Goals
 
-- [ ] Realistic city simulations
+- [ ] Smart city simulations
+- [ ] Autonomous driving systems
 - [ ] Reinforcement learning environments
-- [ ] Autonomous driving simulations
-- [ ] Multi-robot systems
-- [ ] Advanced AI perception
-- [ ] Digital twin ecosystems
+- [ ] Multi-agent robotics systems
+- [ ] AI-powered simulations
+- [ ] Large-scale robotics ecosystems
 
 ---
 
@@ -195,65 +275,52 @@ ros2 launch my_robot simulation.launch.py
 
 ---
 
-# 🌌 Simulation Goals
+# 🌌 Simulation Objectives
 
-The project focuses entirely on virtual robotics and simulation systems including:
+The project focuses entirely on virtual robotics systems including:
 
 - Autonomous navigation
-- AI perception
+- AI perception systems
 - Environmental mapping
-- Traffic simulations
-- Weather simulations
-- Virtual sensor systems
-- Reinforcement learning environments
-- Digital twins
+- Sensor simulation
+- Traffic simulation
+- Reinforcement learning
+- Digital environments
+- Real-time robotics testing
 
 ---
 
 # ⚡ GPU Acceleration
 
-CUDA and GPU acceleration are integrated to enable:
+CUDA acceleration enables:
 
 - Faster AI inference
 - Real-time simulation
 - Deep learning workloads
 - Computer vision acceleration
-- Large-scale virtual environments
+- Large-scale simulation environments
 
 ---
 
 # 🤖 Final Objective
 
-Create a fully simulated autonomous robotics ecosystem capable of:
+Create a complete autonomous robotics simulation ecosystem capable of:
 
 - Environmental perception
 - AI-based decision making
 - Autonomous navigation
-- Real-time simulation
+- Real-time robotics simulation
 - Sensor fusion
-- Digital twin integration
+- Intelligent robotic behavior
 - Large-scale virtual testing
 
 without requiring physical robotic hardware.
 
 ---
 
-# 📈 Future Expansion
-
-Future development may include:
-
-- AI-powered virtual vehicles
-- Smart city simulations
-- Autonomous drone simulations
-- Industrial automation simulations
-- Multi-agent AI systems
-- Reinforcement learning platforms
-
----
-
 # 🌍 Philosophy
 
-> “Simulation is the bridge between artificial intelligence and real-world innovation.”
+> “Simulation is where robotics, artificial intelligence, and engineering converge.”
 
 ---
 
@@ -261,17 +328,17 @@ Future development may include:
 
 This repository is designed to:
 
-- Document the entire learning journey
-- Build advanced robotics engineering skills
-- Explore cutting-edge AI technologies
+- Document the complete learning journey
+- Build professional robotics engineering skills
+- Explore modern AI technologies
 - Create realistic robotics simulations
-- Develop professional-level engineering workflows
+- Help robotics learners and developers
 
 ---
 
 # 🚀 Long-Term Mission
 
-Combining simulation, artificial intelligence, robotics, GPU acceleration, and autonomous systems into one unified virtual engineering ecosystem.
+Combining robotics simulation, artificial intelligence, GPU acceleration, and autonomous systems into one unified engineering ecosystem.
 
 ---
 
