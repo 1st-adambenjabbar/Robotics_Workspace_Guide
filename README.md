@@ -19,7 +19,7 @@ Building intelligent autonomous robotics simulations using ROS 2, Gazebo, NVIDIA
 
 ---
 
-# 🔮 Vision
+## Vision
 
 This repository documents my journey toward mastering modern robotics simulation and artificial intelligence systems using:
 
@@ -43,7 +43,7 @@ I want to complete and validate the projects myself first, which may take severa
 ## *As for the design languages section, both the writing and explanations were done by Claude, not me, because I honestly do not fully understand that part yet.*
 ---
 
-# 🧠 Main Technologies
+# Main Technologies
 
 | Technology | Purpose |
 |---|---|
@@ -58,7 +58,7 @@ I want to complete and validate the projects myself first, which may take severa
 
 ---
 
-# 🏗️ Simulation Architecture
+#  Simulation Architecture
 
 ```mermaid
 graph LR
@@ -72,15 +72,15 @@ D --> F[Isaac Sim]
 
 ---
 
-# 📚 Complete Robotics Simulation Learning Path
+#  Complete Robotics Simulation Learning Path
 
 This repository follows a structured roadmap designed to take users from Linux setup to advanced robotics simulation systems.
 
 ---
 
-# 🐧 Phase 1 — Linux Environment
+#  Phase 1 — Linux Environment
 
-## 📦 WSL Installation
+##  WSL Installation
 
 ### [WSL Installation](./WSL%20Installation.md)
 
@@ -95,9 +95,9 @@ Topics included:
 
 ---
 
-# 🤖 Phase 2 — ROS2 Foundations
+#  Phase 2 — ROS2 Foundations
 
-## 🧠 ROS2 Installation and Concepts
+##  ROS2 Installation and Concepts
 
 ### [ROS 2 Installation Guide and Concepts Explanation](./ROS%202%20Installation%20Guide.md)
 
@@ -118,7 +118,7 @@ Topics included:
 
 ---
 
-## 💻 Programming With ROS2
+##  Programming With ROS2
 
 ### [Programming With ROS2](./Programming%20With%20ROS2.md)
 
@@ -136,9 +136,9 @@ Topics included:
 
 ---
 
-# 🌍 Phase 3 — Robotics Simulation
+#  Phase 3 — Robotics Simulation
 
-## 🚗 Gazebo Simulation
+##  Gazebo Simulation
 
 ### [Gazebo Simulation Coding Guide](./Gazebo%20simulation%20coding%20guide.md)
 
@@ -156,9 +156,9 @@ Topics included:
 
 ---
 
-# ⚡ Phase 4 — GPU Acceleration
+#  Phase 4 — GPU Acceleration
 
-## 🔥 CUDA Installation
+##  CUDA Installation
 
 ### [Cuda Installation](./Cuda%20Installation.md)
 
@@ -174,9 +174,9 @@ Topics included:
 
 ---
 
-# 🚀 Phase 5 — Advanced Robotics Simulation
+#  Phase 5 — Advanced Robotics Simulation
 
-## 🌌 NVIDIA Isaac Sim
+##  NVIDIA Isaac Sim
 
 ### [Isaac Sim Installation and Use](./isaac%20sim%20Installation%20and%20Use.md)
 
@@ -194,9 +194,9 @@ Topics included:
 
 ---
 
-# 🛠️ Phase 6 — Development Workflow
+#  Phase 6 — Development Workflow
 
-## 🐳 Docker & Git
+##  Docker & Git
 
 ### [Docker & Git Setup](./Docker%20-%20Git.md)
 
@@ -212,9 +212,9 @@ Topics included:
 
 ---
 
-# 📖 Utilities
+# Utilities
 
-## 🐧 Linux Commands Cheat Sheet
+##  Linux Commands Cheat Sheet
 
 ### [Linux Commands Cheat Sheet](./Linux%20Commands%20Cheat%20Sheet.md)
 
@@ -222,9 +222,8 @@ Useful Linux commands commonly used in robotics and development environments.
 
 ---
 
-# 🛣️ Learning Progression
-
-## ✅ Foundations
+#  Learning Progression
+##  Foundations
 
 - [x] Linux Fundamentals
 - [x] Git & GitHub
@@ -234,7 +233,7 @@ Useful Linux commands commonly used in robotics and development environments.
 
 ---
 
-## 🚧 Current Focus
+##  Current Focus
 
 - [ ] Gazebo Simulation
 - [ ] CUDA Integration
@@ -245,7 +244,7 @@ Useful Linux commands commonly used in robotics and development environments.
 
 ---
 
-## 🔥 Future Goals
+##  Future Goals
 
 - [ ] Smart city simulations
 - [ ] Autonomous driving systems
@@ -256,7 +255,7 @@ Useful Linux commands commonly used in robotics and development environments.
 
 ---
 
-# 💻 Example ROS2 Workflow
+#  Example ROS2 Workflow
 
 ```bash
 # Source ROS2
@@ -278,7 +277,7 @@ ros2 launch my_robot simulation.launch.py
 
 ---
 
-# 🌌 Simulation Objectives
+#  Simulation Objectives
 
 The project focuses entirely on virtual robotics systems including:
 
@@ -293,7 +292,7 @@ The project focuses entirely on virtual robotics systems including:
 
 ---
 
-# ⚡ GPU Acceleration
+#  GPU Acceleration
 
 CUDA acceleration enables:
 
@@ -305,7 +304,7 @@ CUDA acceleration enables:
 
 ---
 
-# 🤖 Final Objective
+#  Final Objective
 
 Create a complete autonomous robotics simulation ecosystem capable of:
 
@@ -321,13 +320,13 @@ without requiring physical robotic hardware.
 
 ---
 
-# 🌍 Philosophy
+#  Philosophy
 
 > “Simulation is where robotics, artificial intelligence, and engineering converge.”
 
 ---
 
-# ⭐ Repository Goals
+#  Repository Goals
 
 This repository is designed to:
 
@@ -339,13 +338,13 @@ This repository is designed to:
 
 ---
 
-# 🚀 Long-Term Mission
+#  Long-Term Mission
 
 Combining robotics simulation, artificial intelligence, GPU acceleration, and autonomous systems into one unified engineering ecosystem.
 ---
 
 <p align="center">
-⚡ Building Intelligent Robotics Through Simulation ⚡
+ Building Intelligent Robotics Through Simulation 
 </p>
 
 
