@@ -3,7 +3,6 @@
 <p align="center">
 Building intelligent autonomous robotics simulations using ROS 2, Gazebo, NVIDIA Isaac Sim, CUDA, and PyTorch.
 </p>
----
 
 <p align="center">
 
