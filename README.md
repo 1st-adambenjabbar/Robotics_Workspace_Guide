@@ -78,7 +78,7 @@ This repository follows a structured roadmap designed to take users from Linux s
 
 ---
 
-#  Phase 1 — Linux Environment
+#  Phase 1 — Linux Environment :
 
 ##  WSL Installation
 
@@ -95,7 +95,7 @@ Topics included:
 
 ---
 
-#  Phase 2 — ROS2 Foundations
+#  Phase 2 — ROS2 Foundations :
 
 ##  ROS2 Installation and Concepts
 
@@ -118,7 +118,7 @@ Topics included:
 
 ---
 
-##  Programming With ROS2
+##  Programming With ROS2 :
 
 ### [Programming With ROS2](./Programming%20With%20ROS2.md)
 
@@ -136,7 +136,7 @@ Topics included:
 
 ---
 
-#  Phase 3 — Robotics Simulation
+#  Phase 3 — Robotics Simulation :
 
 ##  Gazebo Simulation
 
@@ -156,7 +156,7 @@ Topics included:
 
 ---
 
-#  Phase 4 — GPU Acceleration
+#  Phase 4 — GPU Acceleration :
 
 ##  CUDA Installation
 
@@ -174,7 +174,7 @@ Topics included:
 
 ---
 
-#  Phase 5 — Advanced Robotics Simulation
+#  Phase 5 — Advanced Robotics Simulation :
 
 ##  NVIDIA Isaac Sim
 
@@ -194,7 +194,7 @@ Topics included:
 
 ---
 
-#  Phase 6 — Development Workflow
+#  Phase 6 — Development Workflow :
 
 ##  Docker & Git
 
@@ -214,7 +214,7 @@ Topics included:
 
 # Utilities
 
-##  Linux Commands Cheat Sheet
+##  Linux Commands Cheat Sheet :
 
 ### [Linux Commands Cheat Sheet](./Linux%20Commands%20Cheat%20Sheet.md)
 
@@ -222,7 +222,7 @@ Useful Linux commands commonly used in robotics and development environments.
 
 ---
 
-#  Learning Progression
+#  Learning Progression :
 ##  Foundations
 
 - [x] Linux Fundamentals
@@ -233,7 +233,7 @@ Useful Linux commands commonly used in robotics and development environments.
 
 ---
 
-##  Current Focus
+##  Current Focus :
 
 - [ ] Gazebo Simulation
 - [ ] CUDA Integration
@@ -244,7 +244,7 @@ Useful Linux commands commonly used in robotics and development environments.
 
 ---
 
-##  Future Goals
+##  Future Goals :
 
 - [ ] Smart city simulations
 - [ ] Autonomous driving systems
@@ -252,28 +252,6 @@ Useful Linux commands commonly used in robotics and development environments.
 - [ ] Multi-agent robotics systems
 - [ ] AI-powered simulations
 - [ ] Large-scale robotics ecosystems
-
----
-
-#  Example ROS2 Workflow
-
-```bash
-# Source ROS2
-source /opt/ros/humble/setup.bash
-
-# Create Workspace
-mkdir -p ~/ros2_ws/src
-
-# Build Workspace
-cd ~/ros2_ws
-colcon build
-
-# Source Workspace
-source install/setup.bash
-
-# Launch Simulation
-ros2 launch my_robot simulation.launch.py
-```
 
 ---
 
