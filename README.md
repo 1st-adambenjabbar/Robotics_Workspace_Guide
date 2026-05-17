@@ -32,9 +32,10 @@ This repository documents my journey toward mastering modern robotics simulation
 
 The goal is to build intelligent autonomous robotic systems entirely in simulation while learning the core technologies used in advanced robotics research and real-world industry environments.
 
-I’m currently developing several private repositories covering robotics, AI, and Physical AI courses, along with another repository dedicated to hands-on projects for each major section of this guide. The plan is to progressively build practical projects at every stage, culminating in a large final project that integrates everything together.
+I’m currently developing several private repositories covering robotics, Physical AI, and embedded cybersecurity courses (fields I’m still learning myself), along with another repository dedicated to hands-on projects for each major section of this guide. The plan is to progressively build practical projects at every stage, culminating in a large final project that brings everything together.
 
-I want to complete and validate the projects myself first ,which may take several months ,but I’m committed to finishing them properly.
+I want to complete and validate the projects myself first, which may take several months, but I’m committed to finishing them properly.
+
 
 ---
 ## About this guide, it took me days to write, structure, and organize in the right order so the instructions are easier to follow. I created it based on the personal difficulties I had months ago when trying to understand the tools and concepts myself.
