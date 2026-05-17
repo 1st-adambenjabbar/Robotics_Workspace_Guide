@@ -94,7 +94,7 @@ Topics included:
 
 ## 🧠 ROS2 Installation and Concepts
 
-### [ROS 2 Installation Guide and Concepts Explanation](./ROS%202%20Installation%20Guide%20and%20Concepts%20Explanation.md)
+### [ROS 2 Installation Guide and Concepts Explanation](./ROS%202%20Installation%20Guide%20and%20Concepts%20Explanation.md](https://github.com/1st-adambenjabbar/The_Ultimate_Robotics_Guide/tree/main))
 
 Install ROS 2 and understand the fundamental concepts behind modern robotics middleware.
 
