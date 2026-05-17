@@ -30,7 +30,11 @@ This repository documents my journey toward mastering modern robotics simulation
 - PyTorch
 - OpenCV
 
-The goal is to create intelligent autonomous virtual robotic systems entirely in simulation while learning the technologies used in advanced robotics research and industry environments.
+The goal is to build intelligent autonomous robotic systems entirely in simulation while learning the core technologies used in advanced robotics research and real-world industry environments.
+
+I’m currently developing several private repositories covering robotics, AI, and Physical AI courses, along with another repository dedicated to hands-on projects for each major section of this guide. The plan is to progressively build practical projects at every stage, culminating in a large final project that integrates everything together.
+
+I want to complete and validate the projects myself first — which may take several months — but I’m committed to finishing them properly.
 
 ---
 ## About this guide, it took me days to write, structure, and organize in the right order so the instructions are easier to follow. I created it based on the personal difficulties I had months ago when trying to understand the tools and concepts myself.
@@ -59,7 +63,7 @@ The goal is to create intelligent autonomous virtual robotic systems entirely in
 graph LR
 
 A[Virtual Sensors] --> B[OpenCV]
-B --> C[PyTorch AI Models]
+B --> C[PyTorch AI Models] 
 C --> D[ROS2 Nodes]
 D --> E[Gazebo Simulation]
 D --> F[Isaac Sim]
