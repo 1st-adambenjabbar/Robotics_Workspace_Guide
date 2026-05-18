@@ -86,7 +86,7 @@ This repository follows a structured roadmap designed to take users from Linux s
 
 Set up a Linux development environment using Windows Subsystem for Linux.
 
-**Sub-project:** [WSL Setup Check](./projects/01_wsl_setup/setup_check.sh)
+**Sub-project:** [WSL Setup Check](projects/01_wsl_setup)
 
 Topics included:
 
