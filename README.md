@@ -36,8 +36,9 @@ This repository (`Robotics_Workspace_Guide`) focuses on the practical aspects of
 *   **Lien :** [1st-adambenjabbar/Robotics_Workspace_Guide](https://github.com/1st-adambenjabbar/Robotics_Workspace_Guide)
 ---
 **I’m currently developing several private repositories covering robotics, Physical AI, and embedded cybersecurity courses (fields I’m still learning myself), along with another repository dedicated to hands-on projects for each major section of this guide. The plan is to progressively build practical projects at every stage, culminating in a large final project that brings everything together.
----
 I want to complete and validate the projects myself first, which may take several months, but I’m committed to finishing them properly. they will be like this :**
+
+---
 ### 2. Robotics Courses (Theoretical Foundations)
 
 This repository (`ROBOTICS_COURSES`) delves into the theoretical underpinnings of how robots think and move. It covers behavior (state machines), control systems (PID, State-Space), signal processing, embedded systems, and robotics mathematics, all within the context of ROS 2 and Gazebo simulation.
