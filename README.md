@@ -336,17 +336,6 @@ This repository is designed to:
 Combining robotics simulation, artificial intelligence, GPU acceleration, and autonomous systems into one unified engineering ecosystem.
 ---
 
-<p align="center">
- Building Intelligent Robotics Through Simulation 
-</p>
-
-
-<p align="center">
- BY ADAM BENJABBAR
-</p>
-
----
-
 # Phase 7 — Final Integration
 
 ## Integrated Autonomous Robotics Ecosystem
@@ -360,5 +349,15 @@ The final step of this guide brings all the components together into a single un
 - AI-driven decision making
 - High-fidelity simulation integration
 - Professional development containerization
+
+---
+<p align="center">
+ Building Intelligent Robotics Through Simulation 
+</p>
+
+
+<p align="center">
+ BY ADAM BENJABBAR
+</p>
 
 ---
