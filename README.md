@@ -88,6 +88,8 @@ This repository follows a structured roadmap designed to take users from Linux s
 
 Set up a Linux development environment using Windows Subsystem for Linux.
 
+**Sub-project:** [WSL Setup Check](./projects/01_wsl_setup/setup_check.sh)
+
 Topics included:
 
 - Ubuntu installation
@@ -104,6 +106,8 @@ Topics included:
 ### [ROS 2 Installation Guide and Concepts Explanation](./ROS%202%20Installation%20Guide.md)
 
 Install ROS 2 and understand the fundamental concepts behind modern robotics middleware.
+
+**Sub-project:** [ROS 2 Environment Check](./projects/02_ros2_basics/ros2_env_check.py)
 
 Topics included:
 
@@ -126,6 +130,8 @@ Topics included:
 
 Learn how to create robotics applications and systems using ROS2 programming workflows.
 
+**Sub-project:** [Simple ROS 2 Node](./projects/03_ros2_programming/simple_node.py)
+
 Topics included:
 
 - Python ROS2 nodes
@@ -145,6 +151,8 @@ Topics included:
 ### [Gazebo Simulation Coding Guide](./Gazebo%20simulation%20coding%20guide.md)
 
 Build and test autonomous robotics systems inside realistic simulation environments.
+
+**Sub-project:** [Gazebo Launch Template](./projects/04_gazebo_sim/empty_world.launch.py)
 
 Topics included:
 
@@ -166,6 +174,8 @@ Topics included:
 
 Enable NVIDIA GPU acceleration for robotics simulations and artificial intelligence workloads.
 
+**Sub-project:** [CUDA & PyTorch Verification](./projects/05_cuda_test/cuda_check.py)
+
 Topics included:
 
 - CUDA installation
@@ -183,6 +193,8 @@ Topics included:
 ### [Isaac Sim Installation and Use](./isaac%20sim%20Installation%20and%20Use.md)
 
 Integrate ROS2 with NVIDIA Isaac Sim for advanced AI-powered robotics simulation systems.
+
+**Sub-project:** [Isaac Sim ROS 2 Bridge Test](./projects/06_isaac_sim_test/isaac_ros_test.py)
 
 Topics included:
 
@@ -203,6 +215,8 @@ Topics included:
 ### [Docker & Git Setup](./Docker%20-%20Git.md)
 
 Set up professional robotics development workflows and containerized environments.
+
+**Sub-project:** [ROS 2 Dockerfile](./projects/07_docker_workflow/Dockerfile)
 
 Topics included:
 
@@ -331,3 +345,21 @@ Combining robotics simulation, artificial intelligence, GPU acceleration, and au
 <p align="center">
  BY ADAM BENJABBAR
 </p>
+
+---
+
+# Phase 7 — Final Integration
+
+## Integrated Autonomous Robotics Ecosystem
+
+### [Final Integrated Project](./projects/final_integrated_project/integrated_system.py)
+
+The final step of this guide brings all the components together into a single unified robotics ecosystem.
+
+**Key Features:**
+- Full system orchestration
+- AI-driven decision making
+- High-fidelity simulation integration
+- Professional development containerization
+
+---
