@@ -17,7 +17,6 @@ Building intelligent autonomous robotics simulations using ROS 2, Gazebo, NVIDIA
 </p>
 
 ---
-
 ## Vision
 
 This repository documents my journey toward mastering modern robotics simulation and artificial intelligence systems using:
