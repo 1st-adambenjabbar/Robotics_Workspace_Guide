@@ -62,7 +62,7 @@ There are **two** main design languages for Gazebo:
 
 # 2. XML Basics — The Syntax Everything is Built On
 
-Both SDF and URDF are written in **XML** (**e**X**tensible **M**arkup **L**anguage).
+Both SDF and URDF are written in **XML** (**eXtensible **M**arkup **L**anguage).
 Understanding XML syntax is essential before reading any design file.
 
 ```xml
