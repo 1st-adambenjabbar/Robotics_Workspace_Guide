@@ -39,7 +39,6 @@ I want to complete and validate the projects myself first, which may take severa
 
 ---
 ### 2. Robotics Courses (Theoretical Foundations)
-
 This repository (`ROBOTICS_COURSES`) delves into the theoretical underpinnings of how robots think and move. It covers behavior (state machines), control systems (PID, State-Space), signal processing, embedded systems, and robotics mathematics, all within the context of ROS 2 and Gazebo simulation.
 
 *   **Lien :** [1st-adambenjabbar/ROBOTICS_COURSES](https://github.com/1st-adambenjabbar/ROBOTICS_COURSES)
