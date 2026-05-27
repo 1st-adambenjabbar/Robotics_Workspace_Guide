@@ -66,6 +66,8 @@ sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 export LANG=en_US.UTF-8
 ```
 
+![Configuration des locales](images/1.png)
+
 > - `apt install locales` — installs the `locales` package, which provides locale configuration tools.
 > - `locale-gen` — generates the actual locale data files on disk:
 >   - `en_US` — basic American English.
@@ -95,6 +97,8 @@ locale
 sudo apt install software-properties-common curl gnupg lsb-release -y
 ```
 
+![Installation des outils requis](images/2.png)
+
 > - `software-properties-common` — provides the `add-apt-repository` command to manage apt sources.
 > - `curl` — stands for **C**lient **URL**. Downloads files from the internet via command line (HTTP, HTTPS, FTP, etc.).
 > - `gnupg` — stands for **GNU P**rivacy **G**uard. Handles encryption and digital signatures — used to verify package authenticity.
@@ -108,6 +112,8 @@ sudo apt install software-properties-common curl gnupg lsb-release -y
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key \
 -o /usr/share/keyrings/ros-archive-keyring.gpg
 ```
+
+![Ajout de la clé GPG](images/3.png)
 
 > - `-s` — **silent**: hides the download progress bar.
 > - `-S` — **show-error**: still shows errors even in silent mode. (`-sSL` = quiet but not blind).
@@ -127,6 +133,8 @@ $(. /etc/os-release && echo $UBUNTU_CODENAME) main" \
 | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
 ```
 
+![Ajout du dépôt ROS 2](images/4.png)
+
 > - `echo "deb [...]"` — prints the apt source line as text.
 > - `deb` — stands for **Deb**ian package. Tells apt this is a binary package source.
 > - `arch=$(dpkg --print-architecture)` — **command substitution** `$(...)`: runs the inner command and inserts its output. `dpkg` = **D**ebian **P**ac**k**a**g**e manager. Returns your CPU architecture: `amd64` (64-bit Intel/AMD), `arm64` (Raspberry Pi 4), etc.
@@ -145,6 +153,8 @@ $(. /etc/os-release && echo $UBUNTU_CODENAME) main" \
 sudo apt update
 ```
 
+![Mise à jour de l'index des packages](images/5.png)
+
 > Now that the ROS2 repo is added, this makes `apt` aware of all `ros-humble-*` packages. Without this step, `apt` wouldn't know they exist.
 
 ---
@@ -154,6 +164,8 @@ sudo apt update
 ```bash
 sudo apt install ros-humble-desktop -y
 ```
+
+![Installation de ROS 2 Humble Desktop](images/6.png)
 
 > Installs the **complete** ROS2 Humble environment, including:
 >
@@ -187,10 +199,6 @@ Permanent (every new terminal automatically):
 echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
-
-> - `>>` — **append redirection**: adds text to the **end** of a file without erasing it. (Unlike `>` which overwrites.)
-> - `~/.bashrc` — `~` = your home directory (`/home/yourusername`). `.bashrc` is a hidden file (`.` prefix = hidden in Linux) that Bash runs **automatically** every time you open a new terminal.
-> - `source ~/.bashrc` — reloads `.bashrc` immediately without closing the terminal.
 
 ---
 
@@ -231,6 +239,8 @@ source /opt/ros/humble/setup.bash
 ros2 run demo_nodes_cpp talker
 ```
 
+![Test de l'installation (Talker)](images/8.png)
+
 > - `ros2 run` — the **CLI** (**C**ommand **L**ine **I**nterface) command to run a node from a package.
 > - `demo_nodes_cpp` — a C++ demo package. `cpp` = **C**++ (**C** **P**lus **P**lus).
 > - `talker` — **publishes** (sends) `"Hello World: X"` messages on the `/chatter` topic.
@@ -266,6 +276,8 @@ cd ~/ros2_ws
 ```bash
 colcon build
 ```
+
+![Création et build du workspace](images/7.png)
 
 > Builds all packages found in `src/`. colcon auto-detects Python (`ament_python`) and C++ (`ament_cmake`) packages.
 >
@@ -311,6 +323,8 @@ cd ~/ros2_ws/src
 ros2 pkg create my_robot_pkg --build-type ament_python --dependencies rclpy
 ```
 
+![Création d'un package ROS 2](images/9.png)
+
 > - `ros2 pkg create` — scaffolds (auto-generates) a new package with all required files.
 > - `my_robot_pkg` — your package name. Convention: use `snake_case` (lowercase + underscores).
 > - `--build-type ament_python` — this is a Python package. Use `ament_cmake` for C++.
@@ -322,184 +336,72 @@ ros2 pkg create my_robot_pkg --build-type ament_python --dependencies rclpy
 ```bash
 cd ~/ros2_ws
 colcon build
+```
+
+![Compilation du package](images/10.png)
+
+```bash
 source install/setup.bash
 ```
 
 ---
 
-## 🔍 Useful ROS2 Commands
+## 🎮 Optional — Install Gazebo Simulator
 
-```bash
-ros2 topic list          # Lists all active topics in the network
-ros2 node list           # Lists all currently running nodes
-ros2 service list        # Lists all available services
-ros2 topic echo /topic   # Prints every message published on a topic in real time
-rqt_graph                # Opens a GUI showing nodes and topics as a live graph
-rviz2                    # Opens the 3D robot visualization tool
-```
-
-> - **topic** — a named channel over which nodes exchange messages (e.g. `/scan`, `/cmd_vel`, `/odom`).
-> - **node** — an individual running process in your robot system.
-> - **service** — a request/response communication (unlike topics which are continuous streams).
-> - **rqt** — stands for **ROS** **Q**T. A GUI plugin framework built on the **Qt** UI toolkit.
-> - **GUI** — stands for **G**raphical **U**ser **I**nterface.
-
----
-
-## 🤖 Install Gazebo Simulation
+Gazebo is the most popular 3D simulator for ROS2.
 
 ```bash
 sudo apt install gazebo ros-humble-gazebo-ros-pkgs -y
+```
+
+![Installation de Gazebo](images/11.png)
+![Fin de l'installation de Gazebo](images/12.png)
+
+To test it:
+```bash
 gazebo
 ```
 
-> - `gazebo` — a physics-based robot simulator (gravity, collisions, friction, sensors).
-> - `ros-humble-gazebo-ros-pkgs` — the ROS2–Gazebo bridge: makes simulated sensor data appear as real ROS2 topics. `pkgs` = **p**ac**k**a**g**e**s**.
+![Interface de Gazebo](images/13.png)
 
 ---
 
-## 🔥 Common Fixes
+## 🛠️ Advanced Tools & Maintenance
 
-```bash
-# ROS2 commands not found → re-source the environment
-source ~/.bashrc
-
-# Missing dependencies → auto-install them all
-rosdep install --from-paths src --ignore-src -r -y
-```
-
-> - `--from-paths src` — scans `src/` for `package.xml` files to find dependency requirements.
-> - `--ignore-src` — skips packages already present as source code in your workspace.
-> - `-r` — **r**osdep continue: keeps going even if some dependencies can't be resolved.
-
-```bash
-# Corrupted build → clean and rebuild from scratch
-rm -rf build install log
-colcon build
-```
-
-> - `rm` — stands for **R**e**m**ove. Deletes files or directories.
-> - `-r` — **r**ecursive: required to delete directories and their contents.
-> - `-f` — **f**orce: suppresses confirmation prompts. ⚠️ **Be careful — `rm -rf` permanently deletes. No trash.**
-
----
-
-## 📚 Useful ROS2 Tools Reference
-
-| Tool | Full name | Purpose |
-|---|---|---|
-| **RViz2** | ROS Visualization 2 | 3D visualization of robot data |
-| **Gazebo** | — | Physics-based robot simulation |
-| **rqt_graph** | ROS QT graph | Live node/topic graph GUI |
-| **colcon** | COLlective CONstruction | Build system for packages |
-| **rosdep** | ROS DEPendency manager | Auto-installs dependencies |
-
----
-
-## 🎯 Final Check
-
+### 🩺 System Check with ROS2 Doctor
+To verify your system health:
 ```bash
 ros2 doctor
 ```
+![Vérification avec ros2 doctor](images/16.png)
 
-> A built-in diagnostic tool that checks your entire ROS2 setup: environment variables, network config, DDS issues, missing dependencies. Produces a full health report.
-
-✅ No major errors → **ROS2 Humble is fully installed and ready** 🚀
-
----
-
----
-
-# 🧠 Understanding ROS2 — Nodes, Publishers & Subscribers
-
-> This section explains **how ROS2 actually works** under the hood, with no prior knowledge assumed.
-
----
-
-## 🔵 What is a Node?
-
-A **node** is simply an **individual program** (process) running in your robot system.
-
-Think of your robot as a team of specialists — each specialist does **one specific job**:
-
-| Node | Job |
-|---|---|
-| `camera_node` | Reads the camera and publishes images |
-| `lidar_node` | Reads the LiDAR sensor and publishes distances |
-| `slam_node` | Receives sensor data and builds a map |
-| `navigation_node` | Receives the map and computes paths |
-| `motor_node` | Receives movement commands and drives the wheels |
-
-> Each node is an **independent process**. They can be written in **different languages** (Python, C++), run on **different machines**, and be started/stopped independently.
-> This is a major advantage over a single monolithic program — if one node crashes, the others keep running.
-
----
-
-## 📡 How do Nodes Communicate? — Topics
-
-Nodes talk to each other through **topics**.
-
-A **topic** is a **named communication channel** — like a radio frequency:
-- Any node can **broadcast** (publish) on a frequency.
-- Any node can **tune in** (subscribe) to a frequency.
-- They never need to know each other exist — they just use the same channel name.
-
+### 🧹 Clean Build
+If you encounter weird build errors, try cleaning your workspace:
+```bash
+rm -rf build install log
+colcon build
 ```
-[ lidar_node ]  ──publishes──▶  /scan  ◀──subscribes──  [ slam_node ]
+![Nettoyage et build](images/15.png)
+
+### 📦 Dependency Management
+To automatically install missing dependencies for your workspace:
+```bash
+rosdep install --from-paths src --ignore-src -r -y
 ```
+![Résolution des dépendances](images/14.png)
 
 ---
 
-## 📤 What is a Publisher? (Sender)
+## 🧠 Core Concepts Visualized
 
-A **publisher** is a node (or part of a node) that **sends data** on a topic.
-
-```python
-# Python example — a node that publishes a message
-publisher = self.create_publisher(String, '/chatter', 10)
-msg = String()
-msg.data = 'Hello World'
-publisher.publish(msg)
-```
-
-> - It **does not care** who is listening — it just keeps broadcasting.
-> - The number `10` is the **QoS queue size** (**Q**uality **o**f **S**ervice) — how many messages to buffer if the subscriber is slow.
-> - Multiple subscribers can receive the same published message simultaneously.
-
-**Real example:** The `talker` demo node you ran earlier was a publisher sending `"Hello World: X"` on the `/chatter` topic every second.
-
----
-
-## 📥 What is a Subscriber? (Receiver)
-
-A **subscriber** is a node (or part of a node) that **receives data** from a topic.
-
-```python
-# Python example — a node that subscribes to messages
-subscription = self.create_subscription(String, '/chatter', self.callback, 10)
-
-def callback(self, msg):
-    print(f'I heard: {msg.data}')
-```
-
-> - Every time a new message arrives on the topic, the **callback function** is automatically called.
-> - A **callback** is a function you write that ROS2 calls for you when an event happens (here: when a message arrives).
-> - The subscriber **does not care** who published the message — it just reads from the channel.
-
-**Real example:** The `listener` demo node you ran was a subscriber, receiving and printing every message from `/chatter`.
-
----
-
-## 🔄 The Full Communication Picture
-
-Here is how the talker/listener demo works end-to-end:
+### The Pub/Sub Model
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                      ROS2 Network (DDS)                  │
-│                                                          │
+│                      ROS2 NETWORK                       │
+│                                                         │
 │   ┌──────────────┐                ┌──────────────────┐   │
-│   │   talker     │                │    listener      │   │
+│   │   Talker     │                │    Listener      │   │
 │   │   (C++ node) │                │  (Python node)   │   │
 │   │              │                │                  │   │
 │   │  PUBLISHER   │──/chatter ──▶  │   SUBSCRIBER     │   │
@@ -578,4 +480,4 @@ Topics are the most common, but ROS2 has two other patterns:
 
 > 🐢 **ROS2 motto**: *"One node = one responsibility"*. Build small, focused nodes and connect them through topics. This makes your robot system **modular**, **testable**, and **robust**.
 
-*Guide written By BENJABBAR ADAM . Last updated: 16 May 2026.*
+*Guide written By BENJABBAR ADAM . Last updated: 27 May 2026.*
