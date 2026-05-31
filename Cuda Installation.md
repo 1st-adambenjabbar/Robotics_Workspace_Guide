@@ -4,7 +4,6 @@
 > **CUDA (Compute Unified Device Architecture)** is NVIDIA's parallel computing platform that unlocks GPU acceleration for deep learning, robotics simulation, scientific computing, and more. This guide covers a full install of the **CUDA Toolkit**, **cuDNN**, and a verification with **PyTorch** — on both Ubuntu and Windows 11.
 
 ---
-
 ## Table of Contents
 
 - [What Is the CUDA Stack?](#what-is-the-cuda-stack)
