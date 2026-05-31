@@ -3,7 +3,6 @@
 
 > **CUDA (Compute Unified Device Architecture)** is NVIDIA's parallel computing platform that unlocks GPU acceleration for deep learning, robotics simulation, scientific computing, and more. This guide covers a full install of the **CUDA Toolkit**, **cuDNN**, and a verification with **PyTorch** — on both Ubuntu and Windows 11.
 
----
 ## Table of Contents
 
 - [What Is the CUDA Stack?](#what-is-the-cuda-stack)
@@ -31,7 +30,6 @@
 - [Troubleshooting](#troubleshooting)
 - [Additional Resources](#additional-resources)
 
----
 
 ## What Is the CUDA Stack?
 
@@ -53,7 +51,6 @@ CUDA is not a single install — it is a layered stack. Install in this exact or
 
 Each layer must be compatible with the one below it. A mismatch at any level is the most common cause of CUDA failures.
 
----
 
 ## System Requirements
 
@@ -66,11 +63,10 @@ Each layer must be compatible with the one below it. A mismatch at any level is 
 | **Storage** | 5 GB free | More for samples and frameworks |
 | **Internet** | Required | Driver and package downloads |
  - even if you found these requirements ain't compatible with your pc config , just try it might work . I personally have an RTX4050 / intel core i5(24G) and it worked for me 
----
 
 ## Version Compatibility Matrix
 
-> ⚠️ Version mismatches are the #1 source of CUDA problems. Always confirm compatibility before installing.
+> ️ Version mismatches are the #1 source of CUDA problems. Always confirm compatibility before installing.
 
 ### CUDA ↔ Driver minimum version
 
@@ -112,7 +108,6 @@ Each layer must be compatible with the one below it. A mismatch at any level is 
 | CUDA 12.0–12.4 | VS 2019, VS 2022 |
 | CUDA 11.8 | VS 2019, VS 2022 |
 
----
 
 ## Pre-Installation Checklist
 
@@ -124,7 +119,6 @@ Before starting, confirm:
 - [ ] No conflicting old CUDA installation (or you plan to remove it first)
 - [ ] Stable internet connection
 
----
 
 ## Ubuntu Installation
 
@@ -142,7 +136,6 @@ Expected output example:
 
 No output means the GPU is either not installed, not detected, or not an NVIDIA card.
 
----
 
 ### Step 2 — Install NVIDIA Driver (Ubuntu)
 
@@ -182,7 +175,6 @@ Example output:
 
 > ℹ️ The `CUDA Version` shown by `nvidia-smi` is the **maximum CUDA version your driver supports**, not the installed toolkit version. These are two different things.
 
----
 
 ### Step 3 — Install CUDA Toolkit (Ubuntu)
 
@@ -220,9 +212,8 @@ chmod +x cuda_12.6.x_linux.run
 sudo ./cuda_12.6.x_linux.run
 ```
 
-> ⚠️ With the `.run` installer, **uncheck the driver** if you already installed it separately to avoid conflicts.
+> ️ With the `.run` installer, **uncheck the driver** if you already installed it separately to avoid conflicts.
 
----
 
 ### Step 4 — Set Environment Variables (Ubuntu)
 
@@ -239,7 +230,7 @@ source ~/.bashrc
 
 For `zsh`, replace `~/.bashrc` with `~/.zshrc`.
 
-> 💡 `/usr/local/cuda` is a symlink that points to the active CUDA version. You can use it instead of the versioned path for a more future-proof setup:
+>  `/usr/local/cuda` is a symlink that points to the active CUDA version. You can use it instead of the versioned path for a more future-proof setup:
 > ```bash
 > export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
 > export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
@@ -257,7 +248,6 @@ nvcc: NVIDIA (R) Cuda compiler driver
 Cuda compilation tools, release 12.6, V12.6.xx
 ```
 
----
 
 ### Step 5 — Install cuDNN (Ubuntu)
 
@@ -283,7 +273,6 @@ sudo apt update
 sudo apt install libcudnn9 libcudnn9-dev
 ```
 
----
 
 ### Step 6 — Verify the Full Stack (Ubuntu)
 
@@ -318,7 +307,6 @@ print(torch.cuda.get_device_name(0))   # NVIDIA GeForce RTX XXXX
 print(torch.version.cuda)             # 12.6
 ```
 
----
 
 ## Windows 11 Installation
 
@@ -333,7 +321,6 @@ wmic path win32_VideoController get name
 
 Or open **Device Manager** → **Display adapters** and confirm an NVIDIA GPU is listed.
 
----
 
 ### Step 2 — Install NVIDIA Driver (Windows)
 
@@ -349,7 +336,6 @@ Verify in PowerShell:
 nvidia-smi
 ```
 
----
 
 ### Step 3 — Install Visual Studio Build Tools (Windows)
 
@@ -361,7 +347,6 @@ CUDA on Windows requires the **MSVC C++ compiler**. Install Visual Studio 2022 B
 
 > ℹ️ If you only need PyTorch/TensorFlow (not compiling custom CUDA kernels), you can skip this step.
 
----
 
 ### Step 4 — Install CUDA Toolkit (Windows)
 
@@ -372,10 +357,10 @@ CUDA on Windows requires the **MSVC C++ compiler**. Install Visual Studio 2022 B
 
 | Component | Include? |
 |-----------|---------|
-| CUDA Toolkit | ✅ Always |
-| CUDA Visual Studio Integration | ✅ If you installed VS |
+| CUDA Toolkit |  Always |
+| CUDA Visual Studio Integration |  If you installed VS |
 | NVIDIA GeForce Experience | Optional |
-| NVIDIA Display Driver | ⚠️ Only if not already installed separately |
+| NVIDIA Display Driver | ️ Only if not already installed separately |
 
 5. Complete the installation and **reboot**
 
@@ -403,7 +388,6 @@ If `nvcc` is not found, add it manually to your PATH:
 
 Then open a **new** PowerShell window and retry `nvcc --version`.
 
----
 
 ### Step 5 — Install cuDNN (Windows)
 
@@ -435,7 +419,6 @@ where cudnn64_9.dll
 # Should output: C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\bin\cudnn64_9.dll
 ```
 
----
 
 ### Step 6 — Verify the Full Stack (Windows)
 
@@ -468,13 +451,12 @@ nvidia-smi
 nvcc --version
 ```
 
----
 
 ## WSL2 — CUDA on Windows via Linux
 
 If you use WSL2 (Windows Subsystem for Linux), the setup is different and simpler:
 
-> ✅ **WSL2 uses the Windows NVIDIA driver directly** — do NOT install a Linux driver inside WSL2. Only install the CUDA Toolkit (without the driver).
+>  **WSL2 uses the Windows NVIDIA driver directly** — do NOT install a Linux driver inside WSL2. Only install the CUDA Toolkit (without the driver).
 
 ```bash
 # Inside your WSL2 Ubuntu terminal:
@@ -495,9 +477,8 @@ nvcc --version
 nvidia-smi  # This reads through the Windows driver
 ```
 
-> ⚠️ Select **WSL-Ubuntu** (not Ubuntu) as the distribution on the CUDA download page for the best compatibility.
+> ️ Select **WSL-Ubuntu** (not Ubuntu) as the distribution on the CUDA download page for the best compatibility.
 
----
 
 ## Install PyTorch with CUDA
 
@@ -530,7 +511,6 @@ print("CUDA version:  ", torch.version.cuda)
 
 All four lines should return sensible values. If `torch.cuda.is_available()` returns `False`, see [Troubleshooting](#troubleshooting).
 
----
 
 ## Managing Multiple CUDA Versions
 
@@ -571,7 +551,6 @@ Windows resolves `nvcc` from the first matching entry in `PATH`. To switch:
 2. Move the desired CUDA version's `bin` entry to the **top** of the list
 3. Open a new terminal and verify with `nvcc --version`
 
----
 
 ## Default Installation Paths
 
@@ -584,7 +563,6 @@ Windows resolves `nvcc` from the first matching entry in `PATH`. To switch:
 | Windows | CUDA Toolkit | `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\` |
 | Windows | cuDNN (after copy) | `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\bin\` |
 
----
 
 ## Troubleshooting
 
@@ -603,14 +581,12 @@ source ~/.bashrc
 
 On Windows, verify `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.6\bin` is in System PATH, then open a new terminal.
 
----
 
 ### `nvidia-smi` works but `nvcc` says "command not found"
 
 **Cause:** The NVIDIA driver is installed, but the **CUDA Toolkit** (separate package) is not.
 **Fix:** Follow Step 3 (Install CUDA Toolkit) — the driver and toolkit are different packages.
 
----
 
 ### `torch.cuda.is_available()` returns `False`
 
@@ -631,27 +607,23 @@ Most likely causes:
 
 3. **Driver too old** — run `nvidia-smi` and compare the driver version against the matrix above.
 
----
 
 ### Version mismatch: `nvcc` reports different version than `nvidia-smi`
 
 This is **expected and normal**. `nvidia-smi` shows the maximum CUDA version your driver *supports*. `nvcc` shows the *installed toolkit* version. As long as the toolkit version ≤ the driver's max version, you're fine.
 
----
 
 ### `CUDA error: no kernel image is available for execution on the device`
 
 **Cause:** PyTorch was compiled against a different CUDA compute capability than your GPU.
 **Fix:** Reinstall PyTorch with the wheel matching your CUDA version, or build from source targeting your GPU's `sm_xx`.
 
----
 
 ### CUDA install fails or hangs on Windows — "Windows Update is running"
 
 **Cause:** The CUDA installer conflicts with an active Windows Update.
 **Fix:** Wait for Windows Update to finish, reboot, then rerun the installer.
 
----
 
 ### `libcuda.so.1: cannot open shared object file` (Linux)
 
@@ -665,7 +637,6 @@ find /usr -name 'libcuda.so*' 2>/dev/null
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 ```
 
----
 
 ### Multiple CUDA versions conflict (CMake picks wrong one)
 
@@ -675,7 +646,6 @@ cmake .. -DCMAKE_CUDA_COMPILER=/usr/local/cuda-12.6/bin/nvcc \
          -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-12.6
 ```
 
----
 
 ### WSL2 — `nvidia-smi` not found inside WSL
 
@@ -687,7 +657,6 @@ source ~/.bashrc
 nvidia-smi
 ```
 
----
 
 ## Additional Resources
 
@@ -700,6 +669,5 @@ nvidia-smi
 - [PyTorch — Get Started (version selector)](https://pytorch.org/get-started/locally/)
 - [NVIDIA CUDA Samples (GitHub)](https://github.com/NVIDIA/cuda-samples)
 
----
 
 *Guide written for CUDA 12.x / 13.x — Ubuntu 22.04 / 24.04 & Windows 11 by BENJABBAR Adam. Last updated: May 2026.*

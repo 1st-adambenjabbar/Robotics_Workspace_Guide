@@ -5,7 +5,6 @@ In this section, I’ll walk you through installing Isaac Sim. I’ve personally
 
 > **Isaac Sim** is NVIDIA's GPU-accelerated robotics simulation platform built on Omniverse. This guide covers the **workstation (binary)** and **pip** installation methods for both Ubuntu and Windows 11, targeting **Isaac Sim 5.1.0** (latest stable, May 2026).
 
----
 
 ## Table of Contents
 
@@ -33,7 +32,6 @@ In this section, I’ll walk you through installing Isaac Sim. I’ve personally
 - [Troubleshooting](#troubleshooting)
 - [Additional Resources](#additional-resources)
 
----
 
 ## What Is Isaac Sim?
 
@@ -45,9 +43,8 @@ Isaac Sim is a simulation platform for robotics built on **NVIDIA Omniverse**. I
 - Synthetic data generation and reinforcement learning via **Isaac Lab**
 - Multi-sensor simulation at scale
 
-> ⚠️ **Isaac Sim requires an NVIDIA RTX GPU with RT Cores.** Data-center GPUs without RT Cores (A100, H100) are **not supported**.
+> ️ **Isaac Sim requires an NVIDIA RTX GPU with RT Cores.** Data-center GPUs without RT Cores (A100, H100) are **not supported**.
 
----
 
 ## System Requirements
 
@@ -66,24 +63,22 @@ Isaac Sim is a simulation platform for robotics built on **NVIDIA Omniverse**. I
 | **CUDA** | 12.x | 12.6+ |
 | **Internet** | Required | Required |
 
-> ⚠️ **Ubuntu 24.04** is not fully supported for source builds — if using 24.04, you must install `gcc-11 / g++-11` and cannot use GCC 12+. For most users, **Ubuntu 22.04 LTS** is the recommended Linux distribution.
+> ️ **Ubuntu 24.04** is not fully supported for source builds — if using 24.04, you must install `gcc-11 / g++-11` and cannot use GCC 12+. For most users, **Ubuntu 22.04 LTS** is the recommended Linux distribution.
 
 > ℹ️ GPUs with less than 16 GB VRAM may struggle with complex scenes rendering more than 16 MP per frame.
 
----
 
 ## Choosing an Installation Method
 
 | Method | Best For | Linux | Windows |
 |--------|----------|-------|---------|
-| **pip** | Beginners, most users | ✅ | ✅ |
-| **Binary (Workstation)** | Full GUI, VS Code integration | ✅ | ✅ |
-| **Docker Container** | CI/CD, headless servers | ✅ | ❌ |
-| **Build from source** | Modifying Isaac Sim itself | ✅ | ✅ |
+| **pip** | Beginners, most users |  |  |
+| **Binary (Workstation)** | Full GUI, VS Code integration |  |  |
+| **Docker Container** | CI/CD, headless servers |  |  |
+| **Build from source** | Modifying Isaac Sim itself |  |  |
 
 This guide covers **pip** and **binary (workstation)** methods.
 
----
 
 ## Ubuntu Installation
 
@@ -116,9 +111,8 @@ nvidia-smi
 # Driver Version should show 580.x or newer
 ```
 
-> 💡 On a new GPU or if you encounter issues, install the `.run` installer directly from the [NVIDIA Unix Driver Archive](https://www.nvidia.com/en-us/drivers/unix/) for the latest production branch.
+>  On a new GPU or if you encounter issues, install the `.run` installer directly from the [NVIDIA Unix Driver Archive](https://www.nvidia.com/en-us/drivers/unix/) for the latest production branch.
 
----
 
 ### Step 2 — Install CUDA Toolkit (Ubuntu)
 
@@ -152,7 +146,6 @@ nvcc --version
 # nvcc: NVIDIA (R) Cuda compiler driver ... release 12.6
 ```
 
----
 
 ### Step 3 — Install Python 3.11 (Ubuntu)
 
@@ -171,14 +164,13 @@ python3.11 --version
 # Python 3.11.x
 ```
 
-> ⚠️ **Ubuntu 24.04 note:** If building from source, install GCC 11 explicitly:
+> ️ **Ubuntu 24.04 note:** If building from source, install GCC 11 explicitly:
 > ```bash
 > sudo apt install gcc-11 g++-11
 > sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 200
 > sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 200
 > ```
 
----
 
 ### Step 4A — Install via pip (Recommended, Ubuntu)
 
@@ -223,7 +215,6 @@ pip install 'isaacsim[all,extscache]==5.1.0' --extra-index-url https://pypi.nvid
 python -c "import isaacsim; print('Isaac Sim installed successfully')"
 ```
 
----
 
 ### Step 4B — Install via Binary (Workstation, Ubuntu)
 
@@ -245,7 +236,6 @@ cd ~/isaacsim
 ./post_install.sh
 ```
 
----
 
 ### Step 5 — First Launch (Ubuntu)
 
@@ -271,7 +261,6 @@ To launch with a fresh config:
 ./isaac-sim.sh --reset-user
 ```
 
----
 
 ## Windows 11 Installation
 
@@ -289,13 +278,12 @@ nvidia-smi
 # Driver Version: 580.88 or newer
 ```
 
----
 
 ### Step 2 — Install Python 3.11 (Windows)
 
 1. Download Python 3.11 from [https://www.python.org/downloads/release/python-3110/](https://www.python.org/downloads/release/python-3110/)
 2. Run the installer.
-3. ✅ Check **"Add Python 3.11 to PATH"** before clicking Install.
+3.  Check **"Add Python 3.11 to PATH"** before clicking Install.
 
 Verify in PowerShell:
 
@@ -304,7 +292,6 @@ python --version
 # Python 3.11.x
 ```
 
----
 
 ### Step 3 — Enable Long Path Support (Windows)
 
@@ -323,9 +310,8 @@ New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" `
 2. Navigate to: **Local Computer Policy → Computer Configuration → Administrative Templates → System → Filesystem**
 3. Enable **"Enable Win32 long paths"**
 
-> ⚠️ Skipping this step commonly causes installation errors with deeply nested pip packages.
+> ️ Skipping this step commonly causes installation errors with deeply nested pip packages.
 
----
 
 ### Step 4A — Install via pip (Recommended, Windows)
 
@@ -370,7 +356,6 @@ pip install "isaacsim[all,extscache]==5.1.0" --extra-index-url https://pypi.nvid
 python -c "import isaacsim; print('Isaac Sim installed successfully')"
 ```
 
----
 
 ### Step 4B — Install via Binary (Workstation, Windows)
 
@@ -391,7 +376,6 @@ cd C:\isaacsim
 .\post_install.bat
 ```
 
----
 
 ### Step 5 — First Launch (Windows)
 
@@ -411,7 +395,6 @@ cd C:\isaacsim
 
 > ⏳ **First launch takes 10–20 minutes** for extension caching. This is normal.
 
----
 
 ## Run the Compatibility Checker
 
@@ -441,7 +424,6 @@ isaacsim isaacsim.exp.compatibility_check
 
 The checker will highlight each requirement as **green** (pass), **yellow** (warning), or **red** (fail).
 
----
 
 ## (Optional) Install Isaac Lab
 
@@ -471,7 +453,6 @@ Verify:
 
 > ℹ️ Isaac Lab requires the same Python 3.11 virtual environment as Isaac Sim. Activate it before running the install script.
 
----
 
 ## Useful Commands
 
@@ -484,7 +465,6 @@ Verify:
 | Run Python script | `./python.sh my_script.py` | `.\python.bat my_script.py` |
 | Compatibility check | `./isaac-sim.compatibility_check.sh` | `.\isaac-sim.compatibility_check.bat` |
 
----
 
 ## Default Installation Paths
 
@@ -495,7 +475,6 @@ Verify:
 | Windows | pip | `C:\isaacsim\env_isaacsim\` |
 | Windows | Binary | `C:\Users\<user>\AppData\Local\ov\pkg\isaac-sim-5.1.0\` |
 
----
 
 ## Troubleshooting
 
@@ -512,7 +491,6 @@ Verify:
 .\warmup.bat
 ```
 
----
 
 ### `ModuleNotFoundError: No module named 'isaacsim'`
 
@@ -527,21 +505,18 @@ source ~/env_isaacsim/bin/activate
 C:\isaacsim\env_isaacsim\Scripts\Activate.ps1
 ```
 
----
 
 ### `OSError: [Errno 36] File name too long` (Windows)
 
 **Cause:** Long path support not enabled.  
 **Fix:** Follow [Step 3 — Enable Long Path Support](#step-3--enable-long-path-support-windows) above and retry.
 
----
 
 ### `GLIBC_2.35 not found` (Ubuntu 20.04)
 
 **Cause:** Ubuntu 20.04 ships with GLIBC 2.31, below the 2.35 minimum for pip install.  
 **Fix:** Use the **binary workstation** installation method instead, or upgrade to Ubuntu 22.04.
 
----
 
 ### Black screen / no rendering after launch
 
@@ -561,7 +536,6 @@ Ensure you're not running on an integrated GPU. On laptops:
 __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia ./isaac-sim.sh
 ```
 
----
 
 ### `pip install` hangs or is very slow
 
@@ -572,7 +546,6 @@ __NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia ./isaac-sim.sh
 isaacsim isaacsim.exp.full.kit --/app/quitAfter=120
 ```
 
----
 
 ### GPU not recognized as RTX / RT Cores error
 
@@ -580,7 +553,6 @@ isaacsim isaacsim.exp.full.kit --/app/quitAfter=120
 **Cause:** GPU driver mismatch.  
 **Fix:** Only GeForce RTX / Quadro RTX / RTX Ada series GPUs are supported. Verify with `nvidia-smi` that the correct GPU is being used.
 
----
 
 ### Isaac Sim on Ubuntu 24.04 closes immediately
 
@@ -593,7 +565,6 @@ sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 200
 sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 200
 ```
 
----
 
 ## Additional Resources
 
@@ -605,6 +576,5 @@ sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 200
 - [NVIDIA Unix Driver Archive](https://www.nvidia.com/en-us/drivers/unix/)
 - [Isaac Sim PyPI (NVIDIA)](https://pypi.nvidia.com/)
 
----
 
 *Guide written for Isaac Sim 5.1.0 — Ubuntu 22.04 LTS & Windows 11 by BENJABBAR Adam . Last updated: May 2026.*

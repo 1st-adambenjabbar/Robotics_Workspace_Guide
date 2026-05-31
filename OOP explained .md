@@ -1,10 +1,9 @@
-# 🏗️ Object-Oriented Programming — Complete Guide
+# ️ Object-Oriented Programming — Complete Guide
 > **C · C++ · Python · Java**
-> Every concept, keyword, and mechanism explained from scratch 🐚
+> Every concept, keyword, and mechanism explained from scratch 
 
----
 
-# 📑 Table of Contents
+#  Table of Contents
 
 1. [What is OOP and Why it Exists](#1-what-is-oop-and-why-it-exists)
 2. [How Class Files Are Organised](#2-how-class-files-are-organised)
@@ -26,7 +25,6 @@
 18. [Full Robot Class Example — All 4 Languages](#18-full-robot-class-example--all-4-languages)
 19. [Language Comparison Cheat Sheet](#19-language-comparison-cheat-sheet)
 
----
 
 # 1. What is OOP and Why it Exists
 
@@ -90,15 +88,13 @@ My car                 →   Another Car instance
 > - **attribute** (or **field** / **member variable**) — **data** stored in an object (the house's colour, size).
 > - **method** (or **member function**) — **behaviour** of an object (the house's alarm system, door opening).
 
----
 
 # 2. How Class Files Are Organised
 
 This is one of the first things that confuses beginners: **where do you actually put your classes?** The answer depends on the language.
 
----
 
-## 🐍 Python — One or many classes per `.py` file
+##  Python — One or many classes per `.py` file
 
 Python is the most flexible. There is **no enforced rule** — you put classes wherever makes sense.
 
@@ -147,9 +143,8 @@ robot.move()
 > - **module** — any `.py` file. Python's basic unit of code organisation.
 > - **package** — a folder containing an `__init__.py`. Groups related modules.
 
----
 
-## ⚙️ C++ — Header + Source file split (`.h` / `.cpp`)
+## ️ C++ — Header + Source file split (`.h` / `.cpp`)
 
 C++ splits every class across **two files**:
 
@@ -303,9 +298,8 @@ private:
 > - **inline** — when implementation is inside the class body in the header. The compiler can optimise these (no function call overhead). Required for **template classes** (templates must be fully visible at compile time).
 > - `.hpp` — alternative extension for C++ headers. Signals "this is C++, not C". Both `.h` and `.hpp` work — team convention decides.
 
----
 
-## ☕ Java — One public class per `.java` file (enforced)
+##  Java — One public class per `.java` file (enforced)
 
 Java **enforces** a strict rule: **one `public` class per file, and the filename must match the class name exactly.**
 
@@ -406,16 +400,15 @@ public class Main {
 **Java: Can you have multiple classes in one file?**
 ```java
 // Robot.java
-public class Robot { ... }          // ✅ public — must match filename
+public class Robot { ... }          //  public — must match filename
 
-class HelperClass { ... }           // ✅ package-private — allowed in same file
+class HelperClass { ... }           //  package-private — allowed in same file
 // BUT: only ONE public class per file
-// class AnotherPublicClass { ... } // ❌ would be a compiler error
+// class AnotherPublicClass { ... } //  would be a compiler error
 ```
 
----
 
-## 🔵 C — Multiple structs per `.c` / `.h` file
+##  C — Multiple structs per `.c` / `.h` file
 
 C has no classes, but the same header/source split applies.
 
@@ -498,9 +491,8 @@ int main(void) {
 > - `#ifndef ROBOT_H` / `#define ROBOT_H` / `#endif` — the classic **include guard** pattern. Alternative to `#pragma once`. Works in both C and C++.
 > - **Naming convention in C** — since there are no namespaces, prefix function names with the "class" name: `Robot_new`, `Robot_move`. Avoids naming collisions.
 
----
 
-## 📁 Summary — File naming at a glance
+##  Summary — File naming at a glance
 
 | Language | File(s) per class | Extensions | Naming convention |
 |----------|------------------|------------|-------------------|
@@ -509,7 +501,6 @@ int main(void) {
 | **Java** | 1 `.java` per public class | `.java` | `Robot.java` → `class Robot` |
 | **C** | 1 `.h` + 1 `.c` | `.h` + `.c` | `robot.h` + `robot.c` |
 
----
 
 # 3. The 4 Pillars of OOP
 
@@ -537,11 +528,10 @@ int main(void) {
 > - **Abstraction** — exposing only the essential interface while hiding complexity. Like driving a car: you use the steering wheel and pedals (abstraction) without understanding the engine internals.
 > - **API** = **A**pplication **P**rogramming **I**nterface. The set of methods/functions a class exposes for others to use.
 
----
 
 # 4. Classes & Objects
 
-## 🐍 Python
+##  Python
 
 ```python
 # ── DEFINING A CLASS ─────────────────────────────────────────────
@@ -574,9 +564,8 @@ print(isinstance(r1, Robot))  # True
 > - **class variable** — defined at class level (no `self`). Shared across all instances.
 > - **instance variable** — created with `self.name = ...`. Each object has its own copy.
 
----
 
-## ⚙️ C++
+## ️ C++
 
 ```cpp
 // Robot.h
@@ -648,9 +637,8 @@ int main() {
 > - **heap allocation** (`new`) — lives until `delete` is called.
 > - `Robot::` — scope resolution operator. Needed outside the class body.
 
----
 
-## ☕ Java
+##  Java
 
 ```java
 // Robot.java
@@ -707,7 +695,6 @@ public class Main {
 > - `toString()` — called automatically by `System.out.println(obj)`.
 > - `this.name` — required when a parameter has the same name as a field.
 
----
 
 # 5. Attributes — Data Inside a Class
 
@@ -761,7 +748,6 @@ public class BankAccount {
 > - Python's `_` prefix — a **convention** (not enforced). Signals internal use.
 > - Python's `__` prefix — **name mangling**: renamed to `_BankAccount__secret` internally.
 
----
 
 # 6. Methods — Behaviour Inside a Class
 
@@ -832,7 +818,6 @@ public class Robot {
 > - In Java, all non-final, non-static methods are virtual by default.
 > - `final` (Java) — prevents subclasses from overriding it.
 
----
 
 # 7. Constructors & Destructors
 
@@ -919,7 +904,6 @@ public class Motor {
 > - `this(...)` (Java) — constructor chaining: must be the **first statement**.
 > - **Rule of Five** (C++) — if you define any of destructor/copy ctor/copy assign/move ctor/move assign → define all five.
 
----
 
 # 8. Access Modifiers — public · private · protected
 
@@ -928,20 +912,20 @@ public class Motor {
                     class     anywhere  class
 ────────────────────────────────────────────────
 Python (convention):
-  no prefix         ✅         ✅         ✅     public
-  _single           ✅         ✅         ⚠️     protected (convention)
-  __double          ✅         ❌         ❌     private (name mangling)
+  no prefix                                public
+  _single                             ️     protected (convention)
+  __double                                 private (name mangling)
 
 C++:
-  public            ✅         ✅         ✅
-  protected         ✅         ✅         ❌
-  private           ✅         ❌         ❌
+  public                              
+  protected                           
+  private                             
 
 Java:
-  public            ✅         ✅         ✅
-  protected         ✅         ✅         ❌
-  (package-private) ✅         ❌         ❌    (no keyword — default)
-  private           ✅         ❌         ❌
+  public                              
+  protected                           
+  (package-private)                       (no keyword — default)
+  private                             
 ```
 
 > - **package-private** (Java) — default when no modifier is written. Accessible within the same package only.
@@ -959,12 +943,11 @@ private:
 class Auditor {
 public:
     void check(BankAccount& acc) {
-        std::cout << acc.balance_;   // ✅ allowed by friend
+        std::cout << acc.balance_;   //  allowed by friend
     }
 };
 ```
 
----
 
 # 9. Inheritance — Building on Existing Classes
 
@@ -1153,7 +1136,6 @@ print(Duck.__mro__)
 > - **MRO** = **M**ethod **R**esolution **O**rder. Python uses C3 linearisation (left-to-right, depth-first) to decide which parent's method wins.
 > - **diamond problem** — when D inherits from B and C, both inheriting from A. Python's MRO resolves this. Java avoids it for classes (only allows single inheritance).
 
----
 
 # 10. Polymorphism — One Interface Many Behaviours
 
@@ -1237,7 +1219,6 @@ int main() {
 > - `std::make_unique<Circle>(5.0)` — preferred over `new Circle(5.0)`. Exception-safe.
 > - `const auto&` — deduces type, const reference, no copy.
 
----
 
 # 11. Abstract Classes & Interfaces
 
@@ -1262,7 +1243,7 @@ class ElectricCar(Vehicle):
     def move(self):       return "Driving silently"
     def fuel_type(self):  return "Electric"
 
-# v = Vehicle("X")     # ❌ TypeError: Can't instantiate abstract class
+# v = Vehicle("X")     #  TypeError: Can't instantiate abstract class
 car = ElectricCar("Tesla")
 print(car.describe())   # Tesla: Electric
 ```
@@ -1340,7 +1321,6 @@ private:
 > - In C++, interface = abstract class. Convention: prefix with `I` (`IMoveable`).
 > - In C++, each interface gets its own `.h` file.
 
----
 
 # 12. Static Members
 
@@ -1406,7 +1386,6 @@ public class Config {
 > - Static members must be **declared** in the `.h` and **defined** in the `.cpp` for C++.
 > - **Utility class** — only static methods and constants. Never instantiated.
 
----
 
 # 13. Special Methods & Operator Overloading
 
@@ -1511,7 +1490,6 @@ std::ostream& operator<<(std::ostream& os, const Vector2D& v) {
 > - `operator<<` — the **stream output operator**. Returns `ostream&` for chaining.
 > - Note the split: declarations go in `.h`, implementations in `.cpp`.
 
----
 
 # 14. Templates & Generics
 
@@ -1634,17 +1612,16 @@ print(int_stack.pop())   # 42
 
 > - Python generics are **type-hint only** — not enforced at runtime. Tools like `mypy` use them for static analysis.
 
----
 
 # 15. Memory Management
 
 ```
 Language    Memory management     You manage?   Crashes possible?
 ──────────────────────────────────────────────────────────────────
-C           Manual (malloc/free)  ✅ Yes        ✅ Yes
-C++         Manual + Smart ptrs   Mostly no     ⚠️ If using raw pointers
-Python      Garbage Collector      ❌ No         ❌ No
-Java        Garbage Collector      ❌ No         ❌ No
+C           Manual (malloc/free)   Yes         Yes
+C++         Manual + Smart ptrs   Mostly no     ️ If using raw pointers
+Python      Garbage Collector       No          No
+Java        Garbage Collector       No          No
 ```
 
 ## C++ Smart Pointers
@@ -1680,7 +1657,6 @@ Java        Garbage Collector      ❌ No         ❌ No
 > - `weak_ptr` — non-owning observer. Breaks **circular references**.
 > - **RAII** — Resource Acquisition Is Initialisation. Smart pointers implement RAII: resource acquired on construction, released on destruction.
 
----
 
 # 16. OOP in C — Simulating with Structs
 
@@ -1765,7 +1741,6 @@ int main(void) {
 > - `malloc` / `free` — manual heap allocation. Every `malloc` must have exactly one matching `free`.
 > - **struct embedding** for inheritance — place the parent struct as the **first member** of the child struct. A pointer to the child can be safely cast to a pointer to the parent.
 
----
 
 # 17. Design Patterns
 
@@ -1862,11 +1837,10 @@ class RobotFactory:
 r = RobotFactory.create('drone')
 ```
 
----
 
 # 18. Full Robot Class Example — All 4 Languages
 
-## 🐍 Python
+##  Python
 
 ```
 robot_project/
@@ -1944,9 +1918,8 @@ for r in [ground, drone]:
 print(f"Total robots: {GroundRobot.get_total()}")
 ```
 
----
 
-## ⚙️ C++
+## ️ C++
 
 ```
 robot_project/
@@ -2085,9 +2058,8 @@ add_executable(robot_app
 )
 ```
 
----
 
-## ☕ Java
+##  Java
 
 ```
 robot_project/
@@ -2173,7 +2145,6 @@ public class Main {
 }
 ```
 
----
 
 # 19. Language Comparison Cheat Sheet
 

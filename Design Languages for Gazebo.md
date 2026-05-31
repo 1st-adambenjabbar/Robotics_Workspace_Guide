@@ -1,10 +1,9 @@
-# 🏗️ Gazebo Design Languages — SDF, URDF & Xacro
+# ️ Gazebo Design Languages — SDF, URDF & Xacro
 > How to **design robots and worlds** for Gazebo simulation
-> SDF · URDF · Xacro — every tag, attribute, and concept explained from scratch 🐚
+> SDF · URDF · Xacro — every tag, attribute, and concept explained from scratch 
 
----
 
-# 📑 Table of Contents
+#  Table of Contents
 
 1. [What are Design Languages and Why They Exist](#1-what-are-design-languages-and-why-they-exist)
 2. [XML Basics — The Syntax Everything is Built On](#2-xml-basics--the-syntax-everything-is-built-on)
@@ -23,7 +22,6 @@
 15. [SDF vs URDF — When to Use Which](#15-sdf-vs-urdf--when-to-use-which)
 16. [Cheat Sheet & Tag Reference](#16-cheat-sheet--tag-reference)
 
----
 
 # 1. What are Design Languages and Why They Exist
 
@@ -58,7 +56,6 @@ There are **two** main design languages for Gazebo:
 > - **SDF** is more powerful but more verbose. Gazebo converts URDF to SDF internally.
 > - **Xacro** is not a format — it's a **preprocessor** that generates URDF.
 
----
 
 # 2. XML Basics — The Syntax Everything is Built On
 
@@ -102,30 +99,29 @@ Understanding XML syntax is essential before reading any design file.
 ### XML rules you MUST follow:
 
 ```xml
-<!-- ✅ CORRECT: every tag is closed -->
+<!--  CORRECT: every tag is closed -->
 <link name="wheel">
     <visual/>
 </link>
 
-<!-- ❌ WRONG: unclosed tag — will crash Gazebo -->
+<!--  WRONG: unclosed tag — will crash Gazebo -->
 <link name="wheel">
     <visual>
 </link>
 
-<!-- ✅ CORRECT: attribute values in quotes -->
+<!--  CORRECT: attribute values in quotes -->
 <box size="0.3 0.2 0.1"/>
 
-<!-- ❌ WRONG: missing quotes -->
+<!--  WRONG: missing quotes -->
 <box size=0.3 0.2 0.1/>
 
-<!-- ✅ CORRECT: self-closing when no content -->
+<!--  CORRECT: self-closing when no content -->
 <box size="1 1 1"/>
 
-<!-- ✅ ALSO CORRECT: explicit close -->
+<!--  ALSO CORRECT: explicit close -->
 <box size="1 1 1"></box>
 ```
 
----
 
 # 3. SDF — Simulation Description Format
 
@@ -221,7 +217,6 @@ Understanding XML syntax is essential before reading any design file.
 > - **ambient light** — omnidirectional background light with no source direction. Prevents completely dark shadows.
 > - **fog** — atmospheric effect. `linear` = fog increases linearly between start and end distances.
 
----
 
 ## SDF Model Block
 
@@ -260,7 +255,6 @@ Understanding XML syntax is essential before reading any design file.
 > - **static** models use no CPU for physics. A world with 100 static walls costs almost nothing. A world with 100 dynamic falling boxes can bring Gazebo to a crawl.
 > - **sleeping** — the physics engine pauses objects that have been still for a while. They "wake up" if something hits them.
 
----
 
 # 4. URDF — Unified Robot Description Format
 
@@ -303,7 +297,6 @@ Simpler than SDF but sufficient for most robots.
 > - In URDF, **every robot must have a link named `base_link`**. It's the root link — all other links attach to it (directly or indirectly) through joints.
 > - `<transmission>` — used with **ros2_control** (hardware abstraction layer for actuators). Beyond the scope of this guide.
 
----
 
 # 5. Links — The Building Blocks
 
@@ -469,7 +462,6 @@ cylinder_inertia(mass=0.1, radius=0.05, length=0.02)
 
 > Use this script to **calculate** your inertia values. Never guess them — wrong inertia values cause robots to spin, flip, or vibrate uncontrollably in simulation.
 
----
 
 # 6. Joints — Connecting Links Together
 
@@ -588,7 +580,6 @@ base_link  ← ROOT (no parent)
 > - `base_link` is the root — it has no parent joint. All other links connect back to it.
 > - The robot can have many **leaf** links (links with no children) — sensors, end effectors, etc.
 
----
 
 # 7. Geometry — Shapes You Can Design
 
@@ -654,7 +645,6 @@ Sphere      ⭐⭐ low     Casters, balls, rounded corners
 Mesh        ⭐⭐⭐⭐ high  Visual only — never for collision
 ```
 
----
 
 # 8. Materials & Visual Appearance
 
@@ -757,7 +747,6 @@ Dark Grey    0.2   0.2   0.2   1.0
 Semi-trans   0.0   0.0   1.0   0.5  ← Blue, 50% transparent
 ```
 
----
 
 # 9. Physics — Mass, Inertia & Collision
 
@@ -823,7 +812,6 @@ Semi-trans   0.0   0.0   1.0   0.5  ← Blue, 50% transparent
 > - `mu2` — friction in the second direction (perpendicular to mu1).
 > - **Caster wheel** — a passive swiveling wheel at the back/front of a differential drive robot. Zero friction = it rolls and pivots freely, supporting the robot without resisting turns.
 
----
 
 # 10. Sensors in SDF/URDF
 
@@ -1127,7 +1115,6 @@ Semi-trans   0.0   0.0   1.0   0.5  ← Blue, 50% transparent
 > - `max_wheel_acceleration` — models motor inertia. Real motors can't change speed instantly. This limit makes simulation more realistic and prevents instability.
 > - `publish_odom_tf` — if true, the plugin broadcasts the `odom → base_link` transform on `/tf`. Set false if you have a separate odometry node to avoid TF conflicts.
 
----
 
 # 12. Xacro — Writing Smarter URDF
 
@@ -1320,7 +1307,6 @@ robot_description = Command(['xacro ', urdf_file])
 > - `<xacro:unless value="${condition}">` — the opposite: includes content only if false.
 > - Useful for: sensor configurations, robot variants (with/without arm), debug helpers.
 
----
 
 # 13. Complete Robot Design — Step by Step
 
@@ -1573,7 +1559,6 @@ ros2 launch my_robot_pkg simulation.launch.py
 
 > - `check_urdf` — a ROS2 command-line tool that validates URDF syntax and prints the robot tree. **Always run this after editing your URDF.** It catches missing joints, broken links, and syntax errors.
 
----
 
 # 14. Complete World Design — Step by Step
 
@@ -1723,27 +1708,25 @@ gazebo my_arena.world
 ros2 launch gazebo_ros gazebo.launch.py world:=/path/to/my_arena.world
 ```
 
----
 
 # 15. SDF vs URDF — When to Use Which
 
 | Feature | URDF | SDF |
 |---|---|---|
-| Robot description | ✅ Yes | ✅ Yes |
-| World description | ❌ No | ✅ Yes |
-| Used by ROS2 natively | ✅ Yes | ⚠️ Need conversion |
-| Used by Gazebo natively | ⚠️ Converted internally | ✅ Yes |
-| Supports xacro | ✅ Yes | ❌ No |
-| Friction, contacts | ⚠️ Via `<gazebo>` block | ✅ Native |
-| Multi-body worlds | ❌ No | ✅ Yes |
-| Sensor definitions | ⚠️ Via `<gazebo>` block | ✅ Native |
-| Nested models | ❌ No | ✅ Yes |
-| Fuel model library | ❌ No | ✅ Yes |
+| Robot description |  Yes |  Yes |
+| World description |  No |  Yes |
+| Used by ROS2 natively |  Yes | ️ Need conversion |
+| Used by Gazebo natively | ️ Converted internally |  Yes |
+| Supports xacro |  Yes |  No |
+| Friction, contacts | ️ Via `<gazebo>` block |  Native |
+| Multi-body worlds |  No |  Yes |
+| Sensor definitions | ️ Via `<gazebo>` block |  Native |
+| Nested models |  No |  Yes |
+| Fuel model library |  No |  Yes |
 
 **Use URDF when:** writing a robot for ROS2 (with xacro for reuse).
 **Use SDF when:** designing worlds, obstacles, props, or using Gazebo Harmonic.
 
----
 
 # 16. Cheat Sheet & Tag Reference
 

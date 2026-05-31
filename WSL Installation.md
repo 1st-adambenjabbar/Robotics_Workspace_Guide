@@ -2,7 +2,6 @@
 
 > **Windows Subsystem for Linux (WSL)** lets you run a full Linux environment directly on Windows 11, without a VM or dual-boot.
 I personally installled for the first time the 09/05/2026 and It worked perfectly so enjoy trust me :
----
 
 ## Table of Contents
 
@@ -20,7 +19,6 @@ I personally installled for the first time the 09/05/2026 and It worked perfectl
 - [Uninstalling a Distribution](#uninstalling-a-distribution)
 - [Troubleshooting](#troubleshooting)
 
----
 
 ## Prerequisites
 
@@ -34,7 +32,6 @@ I personally installled for the first time the 09/05/2026 and It worked perfectl
 
 > **Virtualization check:** Open Task Manager → Performance → CPU. Look for *Virtualization: Enabled*. If disabled, enable it in your BIOS/UEFI settings.
 
----
 
 ## Step 1 — Enable WSL (one command)
 
@@ -54,7 +51,6 @@ This single command:
 
 > ℹ️ If WSL was already partially installed, run `wsl --update` to make sure you have the latest kernel.
 
----
 
 ## Step 2 — Choose a Linux Distribution
 
@@ -91,7 +87,6 @@ wsl --install -d Debian
 
 You can install **multiple distributions** side by side.
 
----
 
 ## Step 3 — First Launch & User Setup
 
@@ -104,11 +99,10 @@ Retype new password:
 passwd: password updated successfully
 ```
 
-> ⚠️ The password prompt is silent — you won't see characters as you type. This is normal.
+> ️ The password prompt is silent — you won't see characters as you type. This is normal.
 
 This user is separate from your Windows account and will be the default sudo user inside WSL.
 
----
 
 ## Step 4 — Update Linux Packages
 
@@ -124,7 +118,6 @@ For Arch-based distros (e.g., if using a custom image):
 sudo pacman -Syu
 ```
 
----
 
 ## Step 5 — Verify WSL Version
 
@@ -147,7 +140,6 @@ The `VERSION` column should show **2**. If it shows `1`, upgrade it:
 wsl --set-version Ubuntu 2
 ```
 
----
 
 ## Step 6 — (Optional) Set WSL 2 as Default
 
@@ -157,7 +149,6 @@ Ensure all future distro installs use WSL 2 by default:
 wsl --set-default-version 2
 ```
 
----
 
 ## Step 7 — (Optional) Install Windows Terminal
 
@@ -171,7 +162,6 @@ winget install --id Microsoft.WindowsTerminal -e
 
 Once installed, your WSL distros appear automatically as profiles in the dropdown.
 
----
 
 ## Useful WSL Commands
 
@@ -189,15 +179,14 @@ Once installed, your WSL distros appear automatically as profiles in the dropdow
 | `wsl --status` | Show WSL configuration |
 | `wsl --export <Name> file.tar` | Backup a distro |
 | `wsl --import <Name> <Path> file.tar` | Restore a distro |
-| `wsl --unregister <Name>` | Remove a distro (⚠️ deletes all data) |
+| `wsl --unregister <Name>` | Remove a distro (️ deletes all data) |
 
----
 
 ## File System — Where Things Live
 
 Understanding where files live is essential to avoid performance issues.
 
-### Linux files (fast ✅)
+### Linux files (fast )
 
 Your Linux home directory lives inside WSL's virtual disk:
 
@@ -207,7 +196,7 @@ Your Linux home directory lives inside WSL's virtual disk:
 
 Access it from Windows Explorer by typing `\\wsl$` in the address bar.
 
-### Windows files (accessible, slower ⚠️)
+### Windows files (accessible, slower ️)
 
 Windows drives are mounted under `/mnt/` inside WSL:
 
@@ -231,7 +220,6 @@ code .
 
 > Requires the **Remote - WSL** extension in VS Code (installed automatically on first use).
 
----
 
 ## Networking Tips
 
@@ -253,11 +241,10 @@ ip addr show eth0 | grep "inet "
 netsh interface portproxy add v4tov4 listenport=3000 listenaddress=0.0.0.0 connectport=3000 connectaddress=$(wsl hostname -I)
 ```
 
----
 
 ## Uninstalling a Distribution
 
-> ⚠️ This permanently deletes all data inside that distro.
+> ️ This permanently deletes all data inside that distro.
 
 ```powershell
 wsl --unregister Ubuntu
@@ -266,7 +253,6 @@ wsl --unregister Ubuntu
 To fully remove WSL itself, go to:
 **Settings → Apps → Installed apps → Windows Subsystem for Linux** → Uninstall.
 
----
 
 ## Troubleshooting
 
@@ -275,7 +261,6 @@ To fully remove WSL itself, go to:
 **Cause:** Virtualization is disabled in BIOS.  
 **Fix:** Restart → enter BIOS/UEFI → enable Intel VT-x or AMD-V → save and reboot.
 
----
 
 ### `Error: 0xc03a001a` when launching distro
 
@@ -287,14 +272,12 @@ wsl --shutdown
 wsl --update
 ```
 
----
 
 ### Linux filesystem is slow on `/mnt/c/`
 
 **Cause:** Cross-filesystem performance penalty in WSL 2.  
 **Fix:** Move your working files to `~/` inside WSL.
 
----
 
 ### Cannot connect to the internet from WSL
 
@@ -306,7 +289,6 @@ echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf
 sudo chattr +i /etc/resolv.conf
 ```
 
----
 
 ### WSL version shows `1` after install
 
@@ -315,7 +297,6 @@ wsl --set-default-version 2
 wsl --set-version <DistroName> 2
 ```
 
----
 
 ## Additional Resources
 
@@ -324,6 +305,5 @@ wsl --set-version <DistroName> 2
 - [Windows Terminal Documentation](https://learn.microsoft.com/en-us/windows/terminal/)
 - [VS Code Remote – WSL](https://code.visualstudio.com/docs/remote/wsl)
 
----
 
 *Guide written for Windows 11 — WSL 2 by BENJABBAR Adam . Last updated: 16 May 2026.*

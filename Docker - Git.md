@@ -4,7 +4,6 @@
 
 > **Docker** packages your application and all its dependencies into a **container** — an isolated, reproducible environment that runs identically on every machine. Essential for robotics, ML pipelines, ROS2 development, and CI/CD.
 
----
 
 ## Table of Contents
 
@@ -29,7 +28,6 @@
 - [Troubleshooting](#troubleshooting)
 - [Quick Reference Card](#quick-reference-card)
 
----
 
 ## What Is Docker?
 
@@ -45,7 +43,6 @@ Without Docker:               With Docker:
 └──────────────┘              └──────────────────────────┘
 ```
 
----
 
 ## Core Concepts
 
@@ -72,7 +69,6 @@ Registry (Docker Hub)
                                   Running process
 ```
 
----
 
 ## Installation
 
@@ -118,7 +114,6 @@ sudo docker run hello-world
 # Should print: "Hello from Docker!"
 ```
 
----
 
 ### Install — Windows 11 (Docker Desktop)
 
@@ -163,7 +158,6 @@ docker run hello-world
 
 Now `docker` commands work from inside your WSL2 terminal.
 
----
 
 ### Install — WSL2
 
@@ -208,9 +202,8 @@ sudo service docker start
 echo "sudo service docker start > /dev/null 2>&1" >> ~/.bashrc
 ```
 
-> 💡 If your WSL2 distro has **systemd enabled** (Ubuntu 22.04+ on recent WSL), you can use `sudo systemctl enable docker` instead.
+>  If your WSL2 distro has **systemd enabled** (Ubuntu 22.04+ on recent WSL), you can use `sudo systemctl enable docker` instead.
 
----
 
 ## Post-Installation Setup
 
@@ -230,7 +223,7 @@ newgrp docker
 docker run hello-world
 ```
 
-> ⚠️ Members of the `docker` group have root-equivalent access. Only add trusted users.
+> ️ Members of the `docker` group have root-equivalent access. Only add trusted users.
 
 ### Enable Docker to start on boot (Ubuntu)
 
@@ -239,7 +232,6 @@ sudo systemctl enable docker
 sudo systemctl enable containerd
 ```
 
----
 
 ## Essential Docker Commands
 
@@ -251,7 +243,6 @@ docker info               # Full system info
 docker version            # Client + server version details
 ```
 
----
 
 ## Images
 
@@ -291,7 +282,6 @@ docker history ubuntu:22.04
 docker tag myapp:latest myusername/myapp:v1.0.0
 ```
 
----
 
 ## Containers
 
@@ -374,7 +364,6 @@ docker cp ./file.txt my-nginx:/etc/nginx/file.txt
 docker cp my-nginx:/etc/nginx/nginx.conf ./nginx.conf
 ```
 
----
 
 ## Volumes — Persistent Storage
 
@@ -411,7 +400,6 @@ docker volume prune
 | **Portability** | Works anywhere | Tied to host path |
 | **Best for** | Databases, persistent app data | Development (edit files on host, see changes live) |
 
----
 
 ## Networking
 
@@ -449,7 +437,6 @@ docker network inspect mynet
 | `host` | Container shares the host network namespace (Linux only) |
 | `none` | No network — fully isolated |
 
----
 
 ## Dockerfile — Build Your Own Image
 
@@ -511,25 +498,25 @@ docker run -d -p 8000:8000 myapp:latest
 ### Dockerfile best practices
 
 ```dockerfile
-# ✅ Combine RUN commands to reduce layers
+#  Combine RUN commands to reduce layers
 RUN apt-get update && apt-get install -y git curl \
     && rm -rf /var/lib/apt/lists/*
 
-# ✅ Use .dockerignore (like .gitignore) to exclude unnecessary files
+#  Use .dockerignore (like .gitignore) to exclude unnecessary files
 # Create .dockerignore:
 # __pycache__/
 # .git/
 # *.pyc
 # node_modules/
 
-# ✅ Use specific tags, not 'latest' in production
+#  Use specific tags, not 'latest' in production
 FROM python:3.11-slim
 
-# ✅ Use non-root user for security
+#  Use non-root user for security
 RUN useradd -m appuser
 USER appuser
 
-# ✅ Multi-stage builds — smaller final image
+#  Multi-stage builds — smaller final image
 FROM python:3.11 AS builder
 COPY requirements.txt .
 RUN pip install --user -r requirements.txt
@@ -540,7 +527,6 @@ COPY . .
 CMD ["python3", "app.py"]
 ```
 
----
 
 ## Docker Compose
 
@@ -627,7 +613,6 @@ docker compose restart app
 docker compose pull
 ```
 
----
 
 ## Docker with NVIDIA GPU (CUDA)
 
@@ -684,7 +669,6 @@ services:
               capabilities: [gpu]
 ```
 
----
 
 ## Useful Workflows
 
@@ -701,7 +685,6 @@ docker run -it --rm \
 
 Edit files on your host — changes appear immediately inside the container.
 
----
 
 ### ROS2 in Docker
 
@@ -721,7 +704,6 @@ source /opt/ros/humble/setup.bash
 ros2 topic list
 ```
 
----
 
 ### One-shot containers (clean, ephemeral)
 
@@ -736,7 +718,6 @@ docker run --rm -it ubuntu:22.04 bash
 docker run --rm -v $(pwd):/app -w /app python:3.11 python3 script.py
 ```
 
----
 
 ### Debugging a failed build
 
@@ -748,7 +729,6 @@ docker run -it <layer-id> bash
 docker build --no-cache -t myapp .
 ```
 
----
 
 ## Docker Registries
 
@@ -787,7 +767,6 @@ docker login nvcr.io
 docker pull nvcr.io/nvidia/isaac-sim:5.1.0
 ```
 
----
 
 ## Managing Resources
 
@@ -811,7 +790,6 @@ docker volume prune
 docker run --memory="1g" --cpus="2.0" myapp
 ```
 
----
 
 ## Troubleshooting
 
@@ -824,7 +802,6 @@ sudo usermod -aG docker $USER
 newgrp docker
 ```
 
----
 
 ### `Cannot connect to the Docker daemon` (WSL2 without Docker Desktop)
 
@@ -836,7 +813,6 @@ sudo service docker start
 sudo systemctl start docker
 ```
 
----
 
 ### Container exits immediately
 
@@ -848,7 +824,6 @@ docker logs <container-name>
 docker run -it myapp bash
 ```
 
----
 
 ### `port is already allocated`
 
@@ -864,7 +839,6 @@ docker ps
 docker stop <name>
 ```
 
----
 
 ### Out of disk space
 
@@ -872,7 +846,6 @@ docker stop <name>
 docker system prune -a --volumes
 ```
 
----
 
 ### `image not found` / `pull access denied`
 
@@ -880,7 +853,6 @@ docker system prune -a --volumes
 - If a private registry: `docker login <registry-url>` first
 - If NVIDIA NGC: `docker login nvcr.io`
 
----
 
 ### `CUDA not available` inside container
 
@@ -888,7 +860,6 @@ docker system prune -a --volumes
 2. Make sure you used `--gpus all` when running
 3. Verify: `docker run --rm --gpus all nvidia/cuda:12.6.0-base-ubuntu22.04 nvidia-smi`
 
----
 
 ## Quick Reference Card
 
@@ -921,7 +892,6 @@ docker system prune -a --volumes
 └───────────────────────┴─────────────────────────────────────────┘
 ```
 
----
 
 ## Additional Resources
 
@@ -933,6 +903,5 @@ docker system prune -a --volumes
 - [Docker Compose Reference](https://docs.docker.com/compose/reference/)
 - [Play with Docker (online playground)](https://labs.play-with-docker.com/)
 
----
 
 *Guide written for Docker Engine 27.x / Docker Desktop 4.x — Ubuntu · Windows 11 · WSL2. Last updated: May 2026.*

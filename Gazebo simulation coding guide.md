@@ -1,10 +1,9 @@
-# 🤖 Gazebo — Complete Simulation & Code Guide
+#  Gazebo — Complete Simulation & Code Guide
 > How to **write code** that simulates, controls, and reads sensors in Gazebo
-> Python (`rclpy`) and C++ (`rclcpp`) — every concept explained from scratch 🐚
+> Python (`rclpy`) and C++ (`rclcpp`) — every concept explained from scratch 
 
----
 
-# 📑 Table of Contents
+#  Table of Contents
 
 1. [How Simulation Code Differs from Real Robot Code](#1-how-simulation-code-differs-from-real-robot-code)
 2. [Simulation Time — The Most Important Concept](#2-simulation-time--the-most-important-concept)
@@ -21,7 +20,6 @@
 13. [Complete Launch File — Full Simulation Stack](#13-complete-launch-file--full-simulation-stack)
 14. [Cheat Sheet](#14-cheat-sheet)
 
----
 
 # 1. How Simulation Code Differs from Real Robot Code
 
@@ -38,7 +36,7 @@ Real robot:                           Gazebo simulation:
 │                             │       │                              │
 │ Time = system clock         │       │ Time = /clock topic          │
 └─────────────────────────────┘       └─────────────────────────────┘
-         same ROS2 node code works for both ✅
+         same ROS2 node code works for both 
 ```
 
 **The 3 things you must do differently in simulation:**
@@ -49,7 +47,6 @@ Real robot:                           Gazebo simulation:
 | 2 | Source ROS2 before Gazebo | So the bridge plugins load correctly |
 | 3 | Match topic names exactly | Simulation topics must match your node's topics |
 
----
 
 # 2. Simulation Time — The Most Important Concept
 
@@ -62,7 +59,7 @@ In Gazebo, simulation can run **faster or slower** than real time.
 - If your node uses **system time** but Gazebo uses **sim time**, timestamps won't match.
 - This causes **TF errors**, missed callbacks, and wrong sensor timestamps.
 
-## 🐍 Python — Always Set use_sim_time
+##  Python — Always Set use_sim_time
 
 ```python
 import rclpy
@@ -100,7 +97,7 @@ def main(args=None):
 > - `self.get_clock().now()` — returns the current time. With `use_sim_time=True`, this is Gazebo sim time.
 > - `.to_msg().sec` — converts the time object to a ROS2 message and extracts the seconds.
 
-## ⚙️ C++ — Always Set use_sim_time
+## ️ C++ — Always Set use_sim_time
 
 ```cpp
 #include "rclcpp/rclcpp.hpp"
@@ -156,7 +153,6 @@ Node(
 
 > This is the **cleanest approach**: set `use_sim_time` from the launch file so you don't need to modify code when switching between simulation and real hardware.
 
----
 
 # 3. Reading Sensor Data from Gazebo
 
@@ -181,7 +177,7 @@ LaserScan message structure:
 └─────────────────────────────────────────┘
 ```
 
-### 🐍 Python — Reading LiDAR
+###  Python — Reading LiDAR
 
 ```python
 import rclpy
@@ -257,9 +253,8 @@ class LidarReaderNode(Node):
 > - `float('inf')` — Python's positive infinity. Used as a safe default ("no obstacle detected").
 > - **NaN** = **N**ot **a** **N**umber. A special floating-point value representing an undefined/invalid result.
 
----
 
-### ⚙️ C++ — Reading LiDAR
+### ️ C++ — Reading LiDAR
 
 ```cpp
 #include "rclcpp/rclcpp.hpp"
@@ -333,7 +328,6 @@ private:
 > - `.push_back(v)` — appends an element to the end of the vector.
 > - `size_t` — an **unsigned integer** type used for sizes and indices. Cannot be negative. `size_t n = r.size()` = number of elements.
 
----
 
 ## 3.2 — Camera (Image)
 
@@ -351,7 +345,7 @@ Image message structure:
 └─────────────────────────────────────────┘
 ```
 
-### 🐍 Python — Reading Camera with OpenCV
+###  Python — Reading Camera with OpenCV
 
 ```python
 import rclpy
@@ -428,7 +422,6 @@ pip install numpy --break-system-packages
 > - `cv2.waitKey(1)` — gives OpenCV's event loop `1ms` to process window events. **Required** after `imshow` — without it, the window won't render.
 > - `cv2.GaussianBlur` — smooths the image using a **Gaussian** kernel (a bell-curve weighted average). Removes noise before edge detection.
 
----
 
 ## 3.3 — IMU (Inertial Measurement Unit)
 
@@ -448,7 +441,7 @@ Imu message structure:
 └─────────────────────────────────────────────────┘
 ```
 
-### 🐍 Python — Reading IMU
+###  Python — Reading IMU
 
 ```python
 import rclpy
@@ -504,7 +497,6 @@ class ImuNode(Node):
 > - **Roll** — rotation around the forward (X) axis. Tilting sideways.
 > - **Pitch** — rotation around the lateral (Y) axis. Tilting forward/backward.
 
----
 
 ## 3.4 — GPS / NavSatFix
 
@@ -537,7 +529,6 @@ class GpsNode(Node):
 > - **SBAS** = **S**atellite-**B**ased **A**ugmentation **S**ystem. Improves GPS accuracy using ground stations.
 > - **GBAS** = **G**round-**B**ased **A**ugmentation **S**ystem. Even more precise, used near airports.
 
----
 
 # 4. Controlling a Simulated Robot
 
@@ -550,7 +541,7 @@ class GpsNode(Node):
    left turns right              left turns left
 ```
 
-### 🐍 Python — Velocity Controller
+###  Python — Velocity Controller
 
 ```python
 import rclpy
@@ -615,9 +606,8 @@ class DriveController(Node):
 > - `(time - start).nanoseconds / 1e9` — converts nanoseconds to seconds. `1e9 = 1,000,000,000`. ROS2 internally stores time in **nanoseconds** for precision.
 > - **open-loop control** — no feedback; just sends commands and hopes the robot does what you want. The opposite is **closed-loop** (checks the result and corrects).
 
----
 
-### ⚙️ C++ — Velocity Controller
+### ️ C++ — Velocity Controller
 
 ```cpp
 #include "rclcpp/rclcpp.hpp"
@@ -672,7 +662,6 @@ private:
 > - `std::min(speed, MAX_LINEAR)` — `std::min` from `<algorithm>`. Returns the smaller of two values. Used here to clamp speed.
 > - `geometry_msgs::msg::Twist()` — default-constructs a `Twist` with all fields = 0.0. Publishing this stops the robot.
 
----
 
 # 5. Odometry — Tracking Robot Position
 
@@ -693,7 +682,7 @@ Odometry message structure:
 └─────────────────────────────────────────────────┘
 ```
 
-### 🐍 Python — Reading Odometry
+###  Python — Reading Odometry
 
 ```python
 import rclpy
@@ -759,7 +748,6 @@ class OdomNode(Node):
 > - **Euclidean distance** — straight-line distance: `√((x2-x1)² + (y2-y1)²)`. Named after Euclid.
 > - **normalize to [-π, π]** — ensures the angle error is always the shortest path (never spins 350° when you could spin -10°).
 
----
 
 # 6. TF — Coordinate Frames
 
@@ -777,7 +765,7 @@ map
            └── right_wheel
 ```
 
-### 🐍 Python — Reading TF Transforms
+###  Python — Reading TF Transforms
 
 ```python
 import rclpy
@@ -849,13 +837,12 @@ sudo apt install ros-humble-tf2-ros ros-humble-tf2-geometry-msgs -y
 > - `rclpy.time.Time()` — `Time()` with no arguments = time zero = "give me the latest available transform". If you pass a specific timestamp, it interpolates.
 > - `try/except` — **exception handling**: `lookup_transform` raises an exception if the transform isn't available yet (e.g. at startup). Always wrap in try/except.
 
----
 
 # 7. Full Example — Obstacle Avoidance Robot
 
 A complete simulation node: reads LiDAR, decides to go forward or turn, publishes velocity.
 
-### 🐍 Python
+###  Python
 
 ```python
 import rclpy
@@ -970,13 +957,12 @@ def main(args=None):
 > - `KeyboardInterrupt` — raised in Python when the user presses **Ctrl+C**. In ROS2, this is how you stop a running node from the terminal.
 > - `hasattr(node, 'stop')` — checks if an object has a specific attribute or method. Defensive coding.
 
----
 
 # 8. Full Example — Wall Follower
 
 A robot that follows the right wall at a fixed distance.
 
-### 🐍 Python
+###  Python
 
 ```python
 import rclpy
@@ -1066,7 +1052,6 @@ class WallFollower(Node):
 > - `correction = -Kp * error` — negative sign because: if too far (positive error), we want to turn right (negative angular.z). If too close (negative error), turn left (positive angular.z).
 > - `max(-MAX, min(MAX, value))` — **clamping** pattern: ensures value stays within `[-MAX, +MAX]`.
 
----
 
 # 9. Writing Gazebo Plugins (C++)
 
@@ -1198,13 +1183,12 @@ install(TARGETS my_plugin
 > - `GZ_REGISTER_MODEL_PLUGIN(ClassName)` — a Gazebo **macro** that registers your class so Gazebo knows how to load it from the `.so` file.
 > - **override** — C++ keyword meaning "this method overrides a virtual method from the parent class". Good practice to be explicit.
 
----
 
 # 10. Designing Worlds Programmatically
 
 Instead of editing XML by hand, you can generate world files with Python.
 
-### 🐍 Python — World Generator
+###  Python — World Generator
 
 ```python
 #!/usr/bin/env python3
@@ -1335,7 +1319,6 @@ gazebo my_generated_world.world
 > - `''.join(models)` — concatenates a list of strings into one, with no separator between them.
 > - **reproducibility** — critical in robotics research: you want to be able to re-run an experiment and get identical conditions.
 
----
 
 # 11. Visualizing with RViz2 Alongside Gazebo
 
@@ -1349,7 +1332,7 @@ ros2 launch gazebo_ros gazebo.launch.py
 ros2 run rviz2 rviz2
 ```
 
-### 🐍 Python — Publish Markers to RViz2
+###  Python — Publish Markers to RViz2
 
 ```python
 from visualization_msgs.msg import Marker, MarkerArray
@@ -1432,7 +1415,6 @@ class VisualizationNode(Node):
 > - `ColorRGBA` — Red Green Blue Alpha, each 0.0–1.0.
 > - `TEXT_VIEW_FACING` — text that always faces the camera (billboarded). The most readable text type in RViz2.
 
----
 
 # 12. Testing Your Simulation Code
 
@@ -1516,7 +1498,6 @@ colcon test-result --verbose
 > - `colcon test` — runs all test files found in your package's `test/` folder.
 > - `colcon test-result --verbose` — shows the detailed results (passed/failed/error per test).
 
----
 
 # 13. Complete Launch File — Full Simulation Stack
 
@@ -1629,7 +1610,6 @@ def generate_launch_description():
 > - `'-d', rviz_cfg` — loads a pre-saved RViz2 configuration file. Without it, RViz2 starts blank and you'd have to manually add displays every time.
 > - `LogInfo(msg=...)` — prints a message to the launch log. Useful to track which step the launch is at.
 
----
 
 # 14. Cheat Sheet
 

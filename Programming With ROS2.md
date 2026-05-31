@@ -3,9 +3,8 @@
 > Everything you need to program nodes in Python (`rclpy`) and C++ (`rclcpp`)
 > Every concept, keyword, and abbreviation explained from scratch.
 
----
 
-# 📑 Table of Contents
+#  Table of Contents
 
 1. [How a ROS2 Program is Structured](#1-how-a-ros2-program-is-structured)
 2. [OOP — Object Oriented Programming in ROS2](#2-oop--object-oriented-programming-in-ros2)
@@ -23,7 +22,6 @@
 14. [Full Node Examples](#14-full-node-examples)
 15. [Cheat Sheet](#15-cheat-sheet)
 
----
 
 # 1. How a ROS2 Program is Structured
 
@@ -55,7 +53,6 @@ my_robot_pkg/
 > - `msg/` / `srv/` — optional folders for custom message/service definitions.
 > - `__init__.py` — an empty file that Python requires to treat a folder as a **module** (importable package).
 
----
 
 # 2. OOP — Object Oriented Programming in ROS2
 
@@ -75,9 +72,8 @@ In ROS2, your node is a **class** that **inherits** from the base `Node` class.
       YourNode  (your class — adds your robot logic on top)
 ```
 
----
 
-## 🐍 Python — OOP Basics
+##  Python — OOP Basics
 
 ```python
 # A class is a blueprint
@@ -106,9 +102,8 @@ class MyRobotNode(Node):       # MyRobotNode inherits from Node
 > - `self` — refers to **this specific instance** of the class. Every method must have `self` as its first parameter. Every attribute must be accessed as `self.attribute`.
 > - **instance** — a concrete object created from a class. `node = MyRobotNode()` creates one instance.
 
----
 
-## ⚙️ C++ — OOP Basics
+## ️ C++ — OOP Basics
 
 ```cpp
 #include "rclcpp/rclcpp.hpp"
@@ -149,14 +144,13 @@ private:                                   // Private section: only inside this 
 > - **namespace** — a named scope that groups related code to avoid name conflicts. Like folders for code. `rclcpp` is the namespace of the ROS2 C++ library.
 > - **trailing `_`** — a common C++ convention: member variables end with `_` to distinguish them from local variables.
 
----
 
 # 3. Publishers — Sending Data
 
 A **publisher** sends messages on a topic continuously.
 Think of it as a radio station broadcasting on a frequency.
 
-## 🐍 Python Publisher
+##  Python Publisher
 
 ```python
 import rclpy
@@ -208,9 +202,8 @@ def main(args=None):
 > - `linear.x` — forward/backward speed in m/s (x axis). `angular.z` — rotation speed in rad/s around vertical axis.
 > - **rad/s** — **rad**ians per **s**econd. Unit of angular speed. `π rad = 180°`.
 
----
 
-## ⚙️ C++ Publisher
+## ️ C++ Publisher
 
 ```cpp
 #include "rclcpp/rclcpp.hpp"
@@ -265,14 +258,13 @@ int main(int argc, char * argv[])
 > - `->publish(msg)` — `->` accesses members of a **pointer**. Since publishers are `SharedPtr` (pointers), you use `->` instead of `.`.
 > - `std::bind(&PublisherNode::publish_data, this)` — creates a callable from a member function. `&` = address of (pointer to the function). `this` = the current object instance.
 
----
 
 # 4. Subscribers — Receiving Data
 
 A **subscriber** receives messages from a topic.
 Think of it as a radio receiver tuned to a frequency — it reacts every time something is broadcast.
 
-## 🐍 Python Subscriber
+##  Python Subscriber
 
 ```python
 import rclpy
@@ -319,9 +311,8 @@ class SubscriberNode(Node):
 > - `:.2f` — Python f-string format: print a float with 2 decimal places.
 > - **IDE** — **I**ntegrated **D**evelopment **E**nvironment (VS Code, PyCharm, CLion, etc.).
 
----
 
-## ⚙️ C++ Subscriber
+## ️ C++ Subscriber
 
 ```cpp
 #include "rclcpp/rclcpp.hpp"
@@ -385,14 +376,13 @@ private:
 > - `*min_it` — the `*` **dereferences** the iterator: gets the actual value it points to.
 > - **STL** — **S**tandard **T**emplate **L**ibrary. C++'s built-in collection of containers (`vector`, `map`) and algorithms (`sort`, `min_element`).
 
----
 
 # 5. Timers — Running Code Periodically
 
 A **timer** calls a function automatically at a fixed time interval.
 Essential for control loops, publishing sensor data, or periodic status updates.
 
-## 🐍 Python Timers
+##  Python Timers
 
 ```python
 class TimerNode(Node):
@@ -459,9 +449,8 @@ class TimerNode(Node):
 > - **PID** — **P**roportional **I**ntegral **D**erivative. A classic feedback control algorithm used in motor control.
 > - **IMU** — **I**nertial **M**easurement **U**nit. Sensor measuring acceleration and rotation (gyroscope + accelerometer).
 
----
 
-## ⚙️ C++ Timers
+## ️ C++ Timers
 
 ```cpp
 class TimerNode : public rclcpp::Node
@@ -507,7 +496,6 @@ private:
 > - `std::chrono::milliseconds(100)` — `chrono` = C++ time library. `milliseconds`, `seconds`, `microseconds` are duration types.
 > - `, count_(0)` in the initializer list — initializes `count_` to `0` in the same step as the parent constructor. More efficient than assigning in the body.
 
----
 
 # 6. Message Types
 
@@ -563,7 +551,6 @@ ros2 interface show sensor_msgs/msg/LaserScan
 
 > `ros2 interface show` — prints the full field definition of any message, service, or action type. Use this whenever you don't know what fields a message has.
 
----
 
 # 7. Services — Request / Response
 
@@ -579,7 +566,7 @@ Client node                              Server node
     │                                        │
 ```
 
-## 🐍 Python — Service Server (the one that handles requests)
+##  Python — Service Server (the one that handles requests)
 
 ```python
 from rclpy.node import Node
@@ -608,7 +595,7 @@ class ServiceServerNode(Node):
         return response            # Must return the response object
 ```
 
-## 🐍 Python — Service Client (the one that sends requests)
+##  Python — Service Client (the one that sends requests)
 
 ```python
 import rclpy
@@ -652,9 +639,8 @@ class ServiceClientNode(Node):
 > - **future** — an object representing a result that isn't available yet. When the response arrives, the future is "resolved".
 > - `add_done_callback` — registers a function to call when the future resolves.
 
----
 
-## ⚙️ C++ Service Server
+## ️ C++ Service Server
 
 ```cpp
 #include "rclcpp/rclcpp.hpp"
@@ -693,7 +679,6 @@ private:
 
 > - `std::placeholders::_1, std::placeholders::_2` — two placeholders because the service callback takes **two arguments** (request AND response), unlike subscriber callbacks (one argument).
 
----
 
 # 8. Actions — Long Running Tasks
 
@@ -712,7 +697,7 @@ Client                              Server
   │  (client can also cancel mid-way)
 ```
 
-## 🐍 Python — Action Client
+##  Python — Action Client
 
 ```python
 import rclpy
@@ -764,13 +749,12 @@ class NavigationClient(Node):
 > - **goal_handle** — a handle to the ongoing action. You can call `goal_handle.cancel_goal_async()` to cancel.
 > - `header.frame_id = 'map'` — tells ROS2 the goal position is expressed in the `'map'` coordinate frame.
 
----
 
 # 9. Parameters — Configurable Values
 
 **Parameters** let you configure your node from outside (command line, launch file, YAML file) without recompiling or editing code.
 
-## 🐍 Python Parameters
+##  Python Parameters
 
 ```python
 class ParameterNode(Node):
@@ -826,9 +810,8 @@ parameter_node:
 > - `-p name:=value` — syntax to pass a parameter from the command line. `:=` is the ROS2 parameter assignment operator.
 > - **runtime** — while the program is running (as opposed to compile time or startup time).
 
----
 
-## ⚙️ C++ Parameters
+## ️ C++ Parameters
 
 ```cpp
 class ParameterNode : public rclcpp::Node
@@ -860,14 +843,13 @@ private:
 > - `.as_double()`, `.as_string()`, `.as_bool()` — type-specific getters. Unlike Python's `.value`, C++ needs explicit type conversion.
 > - `std::string("default")` — wrapping in `std::string()` is needed so C++ doesn't confuse it with a `char*`.
 
----
 
 # 10. Launch Files — Starting Multiple Nodes
 
 A **launch file** starts multiple nodes at once, passes parameters, and sets up the whole system.
 Without launch files, you'd need a separate terminal for every node.
 
-## 🐍 Python Launch File
+##  Python Launch File
 
 ```python
 # launch/my_robot_launch.py
@@ -946,7 +928,6 @@ ros2 launch my_robot_pkg my_robot_launch.py speed:=1.0
 > - `get_package_share_directory` — finds the installed path of a package (where YAML configs, meshes, etc. are stored after `colcon build`).
 > - `output='screen'` — prints logs to terminal. `output='log'` — writes to a file in `~/.ros/log/`.
 
----
 
 # 11. Package Files — package.xml & CMakeLists.txt
 
@@ -985,7 +966,6 @@ ros2 launch my_robot_pkg my_robot_launch.py speed:=1.0
 > - `<buildtool_depend>` — a tool needed only at **build time**, not at runtime.
 > - `format="3"` — the package.xml format version. Always use 3 for ROS2.
 
----
 
 ## `setup.py` — Python only
 
@@ -1024,7 +1004,6 @@ setup(
 > - `data_files` — tells colcon to copy extra files (launch, config, YAML) into the install directory. If you don't do this, your launch files won't be found at runtime.
 > - `glob('launch/*.py')` — `glob` finds all files matching a pattern. Here: all `.py` files in the `launch/` folder.
 
----
 
 ## `CMakeLists.txt` — C++ only
 
@@ -1071,7 +1050,6 @@ ament_package()    # MUST be the last line
 > - `install(TARGETS ... DESTINATION lib/${PROJECT_NAME})` — copies compiled binaries so `ros2 run` can find them. `${PROJECT_NAME}` = the `project()` name above.
 > - `ament_package()` — **must be the last line**. Registers the package with ament.
 
----
 
 # 12. Custom Messages
 
@@ -1147,11 +1125,10 @@ msg.error_code    = 0;
 > - **rosidl** — **ROS** **I**nterface **D**efinition **L**anguage. The system that converts `.msg`/`.srv` files into Python and C++ code at build time.
 > - In C++, the include path uses `snake_case` (e.g. `robot_status.hpp`), but the class is in `CamelCase` (`RobotStatus`). This is automatic — colcon generates both.
 
----
 
 # 13. Logging & Debugging
 
-## 🐍 Python Logging
+##  Python Logging
 
 ```python
 # Severity levels (from lowest to highest)
@@ -1170,7 +1147,7 @@ self.get_logger().info('This prints every call')
 # Use a counter or flag to throttle if needed
 ```
 
-## ⚙️ C++ Logging
+## ️ C++ Logging
 
 ```cpp
 RCLCPP_DEBUG(this->get_logger(), "Debug: value = %d", value);
@@ -1217,11 +1194,10 @@ rviz2                            # 3D visualization
 > - `ros2 topic bw` — **b**and**w**idth. Shows how much data (bytes/second) flows on a topic. Useful for camera streams.
 > - `rqt_console` — a GUI that shows all node logs with filtering by level and node name. Easier than reading the terminal.
 
----
 
 # 14. Full Node Examples
 
-## 🐍 Python — Complete Robot Controller
+##  Python — Complete Robot Controller
 
 ```python
 import rclpy
@@ -1307,9 +1283,8 @@ if __name__ == '__main__':
 > - `if __name__ == '__main__'` — runs `main()` only when the script is executed directly, not when imported as a module. Good practice in every Python file.
 > - `SAFE_DISTANCE = 0.5` — uppercase = **class constant** by Python convention. Never changes after definition.
 
----
 
-## ⚙️ C++ — Complete Robot Controller
+## ️ C++ — Complete Robot Controller
 
 ```cpp
 #include "rclcpp/rclcpp.hpp"
@@ -1410,7 +1385,6 @@ int main(int argc, char * argv[])
 > - `#include <algorithm>` — includes STL algorithms like `std::min_element`, `std::sort`, `std::find`.
 > - `#include <limits>` — includes `std::numeric_limits` for min/max values of numeric types.
 
----
 
 # 15. Cheat Sheet
 

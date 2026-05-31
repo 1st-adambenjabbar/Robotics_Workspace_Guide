@@ -15,7 +15,6 @@ Il est principalement utilisé pour :
 - La robotique
 - Le contrôle automatique
 
----
 
 # Sommaire
 
@@ -39,7 +38,6 @@ Il est principalement utilisé pour :
 18. Exemples de projets
 19. Ressources
 
----
 
 # 1. Installation
 
@@ -53,7 +51,6 @@ Installer puis lancer MATLAB depuis :
 - Linux
 - macOS
 
----
 
 # 2. Syntaxe de base
 
@@ -84,7 +81,6 @@ a = 5; % Pas d'affichage
 b = 10  % Affichage automatique
 ```
 
----
 
 # 3. Variables
 
@@ -116,7 +112,6 @@ class(a)
 clear x
 ```
 
----
 
 # 4. Types de données
 
@@ -130,7 +125,6 @@ clear x
 | Cell | `{1, "abc"}` |
 | Struct | `person.nom = "Jean"` |
 
----
 
 # 5. Opérations mathématiques
 
@@ -164,7 +158,6 @@ inf
 NaN
 ```
 
----
 
 # 6. Vecteurs et matrices
 
@@ -226,7 +219,6 @@ A .* B
 A ./ B
 ```
 
----
 
 # 7. Conditions
 
@@ -259,7 +251,6 @@ switch jour
 end
 ```
 
----
 
 # 8. Boucles
 
@@ -302,7 +293,6 @@ for i = 1:10
 end
 ```
 
----
 
 # 9. Fonctions
 
@@ -329,7 +319,6 @@ end
 r = carre(4);
 ```
 
----
 
 # 10. Scripts
 
@@ -356,7 +345,6 @@ Exécution :
 mon_script
 ```
 
----
 
 # 11. Graphiques
 
@@ -398,7 +386,6 @@ y = rand(100,1);
 scatter(x,y)
 ```
 
----
 
 # 12. Lecture et écriture de fichiers
 
@@ -430,7 +417,6 @@ fprintf(fichier, "Bonjour");
 fclose(fichier);
 ```
 
----
 
 # 13. Structures et cellules
 
@@ -459,7 +445,6 @@ C = {1, "texte", [1 2 3]};
 C{2}
 ```
 
----
 
 # 14. Programmation orientée objet
 
@@ -492,7 +477,6 @@ v = Voiture("BMW", 200);
 v.afficher();
 ```
 
----
 
 # 15. Debugging
 
@@ -514,7 +498,6 @@ whos
 workspace
 ```
 
----
 
 # 16. Bonnes pratiques
 
@@ -526,7 +509,6 @@ workspace
 - Utiliser Git pour le versioning
 - Tester régulièrement le code
 
----
 
 # 17. Toolbox populaires
 
@@ -543,7 +525,6 @@ Documentation officielle :
 
 - :contentReference[oaicite:2]{index=2}
 
----
 
 # 18. Exemples de projets
 
@@ -585,7 +566,6 @@ signal = sin(2*pi*50*t);
 plot(t, signal)
 ```
 
----
 
 # 19. Ressources utiles
 
@@ -599,7 +579,6 @@ plot(t, signal)
 
 - :contentReference[oaicite:6]{index=6}
 
----
 
 # Raccourcis utiles
 
@@ -610,7 +589,6 @@ plot(t, signal)
 | Décommenter | Ctrl + T |
 | Aide | F1 |
 
----
 
 # Conclusion
 
