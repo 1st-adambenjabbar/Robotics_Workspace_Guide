@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="road">
+    <include><uri>model://sun</uri></include>
+    <include><uri>model://ground_plane</uri></include>
+    <model name="road"><static>true</static><pose>5 0 0.0005 0 0 0</pose>
+      <link name="l"><visual name="v">
+        <geometry><box><size>12 1.8 0.001</size></box></geometry>
+        <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Grey</name></script></material>
+      </visual></link></model>
+    <model name="edge_left"><static>true</static><pose>5 0.8 0.0015 0 0 0</pose>
+      <link name="l"><visual name="v">
+        <geometry><box><size>12 0.06 0.001</size></box></geometry>
+        <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/White</name></script></material>
+      </visual></link></model>
+    <model name="edge_right"><static>true</static><pose>5 -0.8 0.0015 0 0 0</pose>
+      <link name="l"><visual name="v">
+        <geometry><box><size>12 0.06 0.001</size></box></geometry>
+        <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/White</name></script></material>
+      </visual></link></model>
+    <model name="dash_0"><static>true</static><pose>-0.50 0 0.0015 0 0 0</pose>
+      <link name="l"><visual name="v">
+        <geometry><box><size>0.5 0.06 0.001</size></box></geometry>
+        <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/White</name></script></material>
+      </visual></link></model>
+    <model name="dash_1"><static>true</static><pose>0.50 0 0.0015 0 0 0</pose>
+      <link name="l"><visual name="v">
+        <geometry><box><size>0.5 0.06 0.001</size></box></geometry>
+        <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/White</name></script></material>
+      </visual></link></model>
+    <model name="dash_2"><static>true</static><pose>1.50 0 0.0015 0 0 0</pose>
+      <link name="l"><visual name="v">
+        <geometry><box><size>0.5 0.06 0.001</size></box></geometry>
+        <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/White</name></script></material>
+      </visual></link></model>
+    <model name="dash_3"><static>true</static><pose>2.50 0 0.0015 0 0 0</pose>
+      <link name="l"><visual name="v">
+        <geometry><box><size>0.5 0.06 0.001</size></box></geometry>
+        <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/White</name></script></material>
+      </visual></link></model>
+    <model name="dash_4"><static>true</static><pose>3.50 0 0.0015 0 0 0</pose>
+      <link name="l"><visual name="v">
+        <geometry><box><size>0.5 0.06 0.001</size></box></geometry>
+        <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/White</name></script></material>
+      </visual></link></model>
+    <model name="dash_5"><static>true</static><pose>4.50 0 0.0015 0 0 0</pose>
+      <link name="l"><visual name="v">
+        <geometry><box><size>0.5 0.06 0.001</size></box></geometry>
+        <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/White</name></script></material>
+      </visual></link></model>
+    <model name="dash_6"><static>true</static><pose>5.50 0 0.0015 0 0 0</pose>
+      <link name="l"><visual name="v">
+        <geometry><box><size>0.5 0.06 0.001</size></box></geometry>
+        <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/White</name></script></material>
+      </visual></link></model>
+    <model name="dash_7"><static>true</static><pose>6.50 0 0.0015 0 0 0</pose>
+      <link name="l"><visual name="v">
+        <geometry><box><size>0.5 0.06 0.001</size></box></geometry>
+        <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/White</name></script></material>
+      </visual></link></model>
+    <model name="dash_8"><static>true</static><pose>7.50 0 0.0015 0 0 0</pose>
+      <link name="l"><visual name="v">
+        <geometry><box><size>0.5 0.06 0.001</size></box></geometry>
+        <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/White</name></script></material>
+      </visual></link></model>
+    <model name="dash_9"><static>true</static><pose>8.50 0 0.0015 0 0 0</pose>
+      <link name="l"><visual name="v">
+        <geometry><box><size>0.5 0.06 0.001</size></box></geometry>
+        <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/White</name></script></material>
+      </visual></link></model>
+    <model name="dash_10"><static>true</static><pose>9.50 0 0.0015 0 0 0</pose>
+      <link name="l"><visual name="v">
+        <geometry><box><size>0.5 0.06 0.001</size></box></geometry>
+        <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/White</name></script></material>
+      </visual></link></model>
+    <model name="dash_11"><static>true</static><pose>10.50 0 0.0015 0 0 0</pose>
+      <link name="l"><visual name="v">
+        <geometry><box><size>0.5 0.06 0.001</size></box></geometry>
+        <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/White</name></script></material>
+      </visual></link></model>
+  </world>
+</sdf>

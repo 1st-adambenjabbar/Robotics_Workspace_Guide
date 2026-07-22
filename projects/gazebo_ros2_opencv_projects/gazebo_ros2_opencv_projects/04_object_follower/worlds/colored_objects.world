@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="colored_objects">
+    <include><uri>model://sun</uri></include>
+    <include><uri>model://ground_plane</uri></include>
+
+    <model name="red_ball">
+      <pose>2.0 0.0 0.15 0 0 0</pose>
+      <static>true</static>
+      <link name="l">
+        <visual name="v">
+          <geometry><sphere><radius>0.15</radius></sphere></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Red</name></script></material>
+        </visual>
+        <collision name="c"><geometry><sphere><radius>0.15</radius></sphere></geometry></collision>
+      </link>
+    </model>
+
+    <model name="green_ball">
+      <pose>1.5 1.5 0.15 0 0 0</pose>
+      <static>true</static>
+      <link name="l">
+        <visual name="v">
+          <geometry><sphere><radius>0.15</radius></sphere></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Green</name></script></material>
+        </visual>
+        <collision name="c"><geometry><sphere><radius>0.15</radius></sphere></geometry></collision>
+      </link>
+    </model>
+
+    <model name="blue_ball">
+      <pose>1.5 -1.5 0.15 0 0 0</pose>
+      <static>true</static>
+      <link name="l">
+        <visual name="v">
+          <geometry><sphere><radius>0.15</radius></sphere></geometry>
+          <material><script><uri>file://media/materials/scripts/gazebo.material</uri><name>Gazebo/Blue</name></script></material>
+        </visual>
+        <collision name="c"><geometry><sphere><radius>0.15</radius></sphere></geometry></collision>
+      </link>
+    </model>
+  </world>
+</sdf>
